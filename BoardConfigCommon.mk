@@ -21,13 +21,12 @@
 # definition file).
 #
 
-LOCAL_PATH := device/motorola/msm8960-common
+LOCAL_PATH := device/motorola/qcom-common
 
 BOARD_VENDOR := motorola-msm8960
 
 # Platform
 TARGET_BOARD_PLATFORM := msm8960
-TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
 
 # Bootloader
 TARGET_NO_BOOTLOADER := true
@@ -75,17 +74,6 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1560281088
 BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_HAS_LARGE_FILESYSTEM := true
 
-# Inline kernel building
-TARGET_KERNEL_SOURCE := kernel/motorola/msm8960-common
-TARGET_KERNEL_CONFIG := msm8960_mmi_defconfig
-TARGET_KERNEL_SELINUX_CONFIG := msm8960_mmi_selinux_defconfig
-BOARD_KERNEL_CMDLINE := console=/dev/null androidboot.hardware=qcom user_debug=31 loglevel=1 zcache
-BOARD_KERNEL_BASE := 0x80200000
-BOARD_KERNEL_PAGESIZE := 2048
-BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01600000
-#backwards compat for 4.1 (making recoveries)
-#BOARD_FORCE_RAMDISK_ADDRESS := 0x81600000
-
 # Enable WEBGL in WebKit
 ENABLE_WEBGL := true
 TARGET_FORCE_CPU_UPLOAD := true
@@ -114,10 +102,6 @@ BOARD_EGL_CFG := $(LOCAL_PATH)/config/egl.cfg
 # Use retire fence from MDP driver
 TARGET_DISPLAY_USE_RETIRE_FENCE := true
 
-# Telephony
-BOARD_RIL_CLASS := ../../../$(LOCAL_PATH)/modules/ril/MotorolaQualcommRIL.java
-BOARD_RIL_NO_CELLINFOLIST:=true
-
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
@@ -137,9 +121,7 @@ BOARD_USES_MOTOROLA_EMU_AUDIO := true
 
 # Camera
 TARGET_PROVIDES_CAMERA_HAL := true
-COMMON_GLOBAL_CFLAGS += -DMR0_CAMERA_BLOB -DCAMERA_POWERMODE -DQCOM_BSP_CAMERA_ABI_HACK -DDISABLE_HW_ID_MATCH_CHECK
-#camera abi compatiblily
-TARGET_DISPLAY_INSECURE_MM_HEAP := true
+COMMON_GLOBAL_CFLAGS += -DCAMERA_POWERMODE
 
 # Power
 TARGET_PROVIDES_POWERHAL := true
@@ -149,14 +131,10 @@ TARGET_NR_SVC_SUPP_GIDS := 28
 TARGET_BOOTANIMATION_PRELOAD := true
 TARGET_BOOTANIMATION_TEXTURE_CACHE := false
 
-# assert
-TARGET_OTA_ASSERT_DEVICE := xt925,xt926,xt907,vanquish_u,vanquish,scorpion_mini,mb886,qinara,asanti,asanti_c,xt897,xt897c
-
 # Recovery
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBA_8888"
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_15x24.h\"
 BOARD_SUPPRESS_EMMC_WIPE := true
-TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/etc/fstab.qcom
 TARGET_USERIMAGES_USE_EXT4 := true
 
 #TWRP
@@ -170,7 +148,7 @@ RECOVERY_SDCARD_ON_DATA := true
 
 # SELinux
 BOARD_SEPOLICY_DIRS += \
-	device/motorola/msm8960-common/sepolicy
+	device/motorola/qcom-common/sepolicy
 
 BOARD_SEPOLICY_UNION += \
 	adbd.te \

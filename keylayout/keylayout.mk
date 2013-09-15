@@ -1,4 +1,4 @@
-LOCAL_PATH := device/motorola/msm8960-common
+LOCAL_PATH := device/motorola/qcom-common
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/keylayout/atmel_mxt_ts.kl:system/usr/keylayout/atmel_mxt_ts.kl \
 	$(LOCAL_PATH)/keylayout/Button_Jack.kl:system/usr/keylayout/Button_Jack.kl \

@@ -1,115 +1,41 @@
 # Bins
-bin/ap_gain.bin
-bin/ap_gain_mmul.bin
 bin/bridgemgrd
 bin/btnvtool
 bin/dbvc_atvc_property_set
 bin/ds_fmc_appd
 bin/ftmipcd
 bin/hci_qcomm_init
-bin/mpdecision
 bin/netmgrd
 bin/nl_listener
 bin/port-bridge
-bin/qdumpd
-bin/qmi_motext_hook
-bin/qmiproxy
-bin/qmuxd
+bin/qseecomd
 bin/radish
-bin/rmt_storage
-bin/sensors.qcom
-bin/thermald
-bin/whisperd
-
-# Configs
-etc/wifi/hostapd_default.conf
-
-# HAL
-lib/hw/vendor-camera.msm8960.so
-lib/hw/sensorhub.msm8960.so
-lib/hw/sensors.msm8960.so
-lib/hw/sensors.oem.so
 
 # Libs
-lib/libAKM.so
-lib/libaudcal.so
-lib/libbabysit.so
-lib/libconfigdb.so
-lib/libcsd-client.so
-lib/libdiag.so
-lib/libdsi_netctrl.so
-lib/libdsprofile.so
-lib/libdss.so
-lib/libdsucsd.so
-lib/libdsutils.so
-lib/libgemini.so
-lib/libgps.so
-lib/libidl.so
-lib/libimage-jpeg-enc-omx-comp.so
-lib/libimage-omx-common.so
-lib/libloc_api_v02.so
-lib/libmm-color-convertor.so
-lib/libmmjpeg.so
-lib/libmmmpod.so
-lib/libmmrtpencoder.so
-lib/libmmstereo.so
-lib/libmmstillomx.so
-lib/libmotext_inf.so
-lib/libmoto_netutil.so
-lib/libmotpostprocinterface.so
-lib/libnative_renderer.so
+lib/libDivxDrm.so
+lib/libdrmdiag.so
+lib/libdrmfs.so
+lib/libdrmtime.so
+lib/libExtendedExtractor.so
+lib/libfrsdk.so
+lib/libgeofence.so
+lib/libmmosal.so
+lib/libmmparser.so
 lib/libnetmgr.so
-lib/libqcci_legacy.so
 lib/libqc-opt.so
-lib/libqdi.so
-lib/libqdp.so
-lib/libqmi.so
-lib/libqmi_cci.so
-lib/libqmi_client_qmux.so
-lib/libqmi_common_so.so
-lib/libqmi_csi.so
-lib/libqmi_csvt_srvc.so
-lib/libqmi_encdec.so
-lib/libril-qcril-hook-oem.so
-lib/libsarqmictrl.so
-lib/libsensor1.so
-lib/libsensorhub_jni.so
-lib/libsensor_reg.so
+lib/libQSEEComAPI.so
+lib/libtime_genoff.so
+lib/libxml.so
 lib/libxt_v02.so
 
-# Camera
-bin/mm-qcamera-daemon
-bin/v4l2-qcamera-app
-lib/libmmcamera_faceproc.so
-lib/libmmcamera_frameproc.so
-lib/libmmcamera_statsproc30.so
-lib/liboemcamera.so
-lib/libchromatix_imx074_default_video.so
-lib/libchromatix_imx074_preview.so
-lib/libchromatix_imx074_video_hd.so
-lib/libchromatix_imx074_zsl.so
-lib/libchromatix_imx091_default_video.so
-lib/libchromatix_imx091_preview.so
-lib/libchromatix_imx091_video_hd.so
-lib/libchromatix_ov2720_default_video.so
-lib/libchromatix_ov2720_preview.so
-lib/libchromatix_ov8820_default_video.so
-lib/libchromatix_ov8820_hfr_60fps.so
-lib/libchromatix_ov8820_preview.so
-lib/libchromatix_ov8820_video_hd.so
-lib/libchromatix_ov8820_zsl.so
-lib/libchromatix_s5k3l1yx_default_video.so
-lib/libchromatix_s5k3l1yx_hfr_120fps.so
-lib/libchromatix_s5k3l1yx_hfr_60fps.so
-lib/libchromatix_s5k3l1yx_hfr_90fps.so
-lib/libchromatix_s5k3l1yx_preview.so
-lib/libchromatix_s5k3l1yx_video_hd.so
-lib/libchromatix_s5k3l1yx_zsl.so
-
-# The following are available on X
-
-# ION audio support
-lib/libacdbloader.so
+# Graphics/video firmware
+etc/firmware/vidc.b00
+etc/firmware/vidc.b01
+etc/firmware/vidc.b02
+etc/firmware/vidc.b03
+etc/firmware/vidc.mdt
+etc/firmware/vidc_1080p.fw
+etc/firmware/vidcfw.elf
 
 ## Adreno GPU
 etc/firmware/a225p5_pm4.fw
@@ -135,33 +61,8 @@ lib/libOpenVG.so
 lib/libsc-a2xx.so
 lib/libsc-a3xx.so
 
-# Graphics/video firmware
-etc/firmware/vidc.b00
-etc/firmware/vidc.b01
-etc/firmware/vidc.b02
-etc/firmware/vidc.b03
-etc/firmware/vidc.mdt
-etc/firmware/vidc_1080p.fw
-etc/firmware/vidcfw.elf
-
 # DRM
 vendor/lib/drm/libdrmwvmplugin.so
 vendor/lib/libwvdrm_L1.so
 vendor/lib/libwvm.so
 vendor/lib/libWVStreamControlAPI_L1.so
-
-# Qseecom
-bin/qseecomd
-lib/libQSEEComAPI.so
-lib/libdrmdiag.so
-lib/libdrmfs.so
-lib/libdrmtime.so
-
-# Lib
-lib/libDivxDrm.so
-lib/libExtendedExtractor.so
-lib/libfrsdk.so
-lib/libgeofence.so
-lib/libmmosal.so
-lib/libmmparser.so
-lib/libxml.so

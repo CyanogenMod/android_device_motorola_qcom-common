@@ -1,4 +1,4 @@
-LOCAL_PATH := device/motorola/msm8960-common
+LOCAL_PATH := device/motorola/qcom-common
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keychars/evfwd.kcm:system/usr/keychars/evfwd.kcm \
     $(LOCAL_PATH)/keychars/kbd_ar_basic.kcm:system/usr/keychars/kbd_ar_basic.kcm \

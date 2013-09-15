@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-LOCAL_PATH := device/motorola/msm8960-common
+LOCAL_PATH := device/motorola/qcom-common
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
@@ -32,7 +32,9 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
     frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
-    frameworks/native/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml
+    frameworks/native/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml \
+    frameworks/native/data/etc/android.hardware.audio.low_latency.xml:system/etc/permissions/android.hardware.audio.low_latency.xml
+
 
 ## overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
@@ -59,14 +61,10 @@ PRODUCT_PACKAGES += \
     aplogd \
     modemlog \
     batt_health \
-    charge_only_mode \
-    graphicsd \
-    mot_boot_mode
+    charge_only_mode
 
 # Misc
 PRODUCT_PACKAGES += \
-    DevicePerformanceSettingsHelper \
-    libxml2 \
     tcpdump \
     Torch
 
@@ -78,11 +76,6 @@ PRODUCT_PACKAGES += charger charger_res_images
 
 # QRNGD
 PRODUCT_PACKAGES += qrngd
-
-# Bluetooth
-PRODUCT_PACKAGES += \
-    hciconfig \
-    hcitool
 
 # HAL
 PRODUCT_PACKAGES += \
@@ -111,17 +104,11 @@ PRODUCT_PACKAGES += \
 
 # Wifi
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/config/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
-    $(LOCAL_PATH)/config/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
-    $(LOCAL_PATH)/config/WCNSS_qcom_cfg.ini:system/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini
+    $(LOCAL_PATH)/config/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
 
 # Ramdisk
 PRODUCT_PACKAGES += \
-    fstab.qcom \
-    init.qcom.rc \
-    init.qcom.usb.rc \
-    init.target.rc \
-    ueventd.qcom.rc
+    init.qcom.usb.rc
 
 # Init scripts
 PRODUCT_PACKAGES += \
@@ -133,10 +120,8 @@ PRODUCT_PACKAGES += \
     init.qcom.early_boot.sh \
     init.qcom.efs.sync.sh \
     init.qcom.fm.sh \
-    init.qcom.mdm_links.sh \
-    init.qcom.modem_links.sh \
     init.qcom.post_boot.sh \
-    init.qcom.sh \
+    init.qcom.ril.sh \
     init.qcom.syspart_fixup.sh \
     init.qcom.thermal_conf.sh \
     init.qcom.usb.sh
@@ -155,17 +140,6 @@ PRODUCT_COPY_FILES += \
 # GPS configuration
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/config/gps.conf:system/etc/gps.conf
-
-# Audio configuration
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/config/audio_policy.conf:system/etc/audio_policy.conf \
-    $(LOCAL_PATH)/config/snd_soc_msm_2x:system/etc/snd_soc_msm/snd_soc_msm_2x \
-    frameworks/native/data/etc/android.hardware.audio.low_latency.xml:system/etc/permissions/android.hardware.audio.low_latency.xml
-
-# Media config
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/config/media_profiles.xml:system/etc/media_profiles.xml \
-    $(LOCAL_PATH)/config/media_codecs.xml:system/etc/media_codecs.xml
 
 # We have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
@@ -210,6 +184,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     make_ext4fs \
     e2fsck \
+    resize2fs \
     setup_fs
 
 #wifi
@@ -217,7 +192,7 @@ PRODUCT_PACKAGES += libnetcmdiface
 
 # Symlinks
 PRODUCT_PACKAGES += \
-    libnetcmdiface \
+    libxml2 \
     libxt_native.so \
     mbhc.bin \
     wcd9310_anc.bin \
@@ -254,18 +229,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
     tunnel.audiovideo.decode=true \
     qcom.hw.aac.encoder=true \
     af.resampler.quality=255 \
+    persist.audio.lowlatency.rec=false \
     ro.opengles.version=131072
 
-#misc
+# Misc
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.fuse_sdcard=true \
-    ro.usb.mtp=0x2e32 \
-    ro.usb.mtp_adb=0x2e33 \
-    ro.usb.ptp=0x2e30 \
-    ro.usb.ptp_adb=0x2e31 \
-    ro.hdmi.enable=true
+    persist.fuse_sdcard=true
 
-#wifi
+# WiFi
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.qc.sub.rstrtlvl=3 \
     persist.sys.qc.sub.rdump.on=1 \
@@ -274,7 +245,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Radio and Telephony
 PRODUCT_PROPERTY_OVERRIDES += \
     rild.libpath=/system/lib/libril-qc-qmi-1.so \
-    ro.telephony.ril_class=MotorolaQualcommRIL \
     ril.subscription.types=NV,RUIM \
     keyguard.no_require_sim=true \
     ro.use_data_netmgrd=true \
@@ -282,10 +252,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.apm_sim_not_pwdn=1 \
     persist.radio.call_type=1 \
     ro.config.vc_call_vol_steps=7
-
-# Wifi
-PRODUCT_PROPERTY_OVERRIDES += \
-    wifi.interface=wlan0 \
-    wifi.supplicant_scan_interval=30
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0

@@ -1,4 +1,4 @@
-Common device configuration for Motorola MSM8960 based devices
+Common device configuration for Motorola Qualcomm devices
 ==============================
 
 Copyright 2013 - The CyanogenMod Project
