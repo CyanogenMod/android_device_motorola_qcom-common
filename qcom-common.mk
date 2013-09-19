@@ -120,7 +120,8 @@ PRODUCT_PACKAGES += \
     init.qcom.early_boot.sh \
     init.qcom.efs.sync.sh \
     init.qcom.fm.sh \
-    init.qcom.post_boot.sh \
+    init.qcom.mdm_links.sh \
+    init.qcom.modem_links.sh \
     init.qcom.ril.sh \
     init.qcom.syspart_fixup.sh \
     init.qcom.thermal_conf.sh \
@@ -164,8 +165,7 @@ PRODUCT_PACKAGES += \
     libmemalloc \
     liboverlay \
     libqdutils \
-    libtilerenderer \
-    libI420colorconvert
+    libtilerenderer
 
 # Omx
 PRODUCT_PACKAGES += \
@@ -178,7 +178,8 @@ PRODUCT_PACKAGES += \
     libOmxAacEnc \
     libOmxAmrEnc \
     libOmxEvrcEnc \
-    libOmxQcelp13Enc
+    libOmxQcelp13Enc \
+    libdashplayer
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \

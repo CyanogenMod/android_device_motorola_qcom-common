@@ -113,8 +113,9 @@ config_bt ()
         setprop ro.qualcomm.bluetooth.pbap true
         setprop ro.qualcomm.bluetooth.ftp true
         setprop ro.qualcomm.bluetooth.nap true
-        setprop ro.qualcomm.bluetooth.sap true
-        setprop ro.qualcomm.bluetooth.dun true
+        setprop ro.qualcomm.bluetooth.sap false
+        setprop ro.qualcomm.bluetooth.dun false
+        setprop qcom.bt.le_dev_pwr_class 1
         case $btsoc in
           "ath3k")
               setprop ro.qualcomm.bluetooth.map false
