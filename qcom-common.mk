@@ -114,21 +114,20 @@ PRODUCT_PACKAGES += \
 
 # Ramdisk
 PRODUCT_PACKAGES += \
-    init.qcom.usb.rc
+    init.qcom.usb.rc \
+    init.ril.rc
 
 # Init scripts
 PRODUCT_PACKAGES += \
     init.crda.sh \
     init.qcom.bt.sh \
     init.qcom.class_core.sh \
-    init.qcom.class_main.sh \
     init.qcom.coex.sh \
     init.qcom.early_boot.sh \
     init.qcom.efs.sync.sh \
     init.qcom.fm.sh \
     init.qcom.mdm_links.sh \
     init.qcom.modem_links.sh \
-    init.qcom.ril.sh \
     init.qcom.syspart_fixup.sh \
     init.qcom.thermal_conf.sh \
     init.qcom.usb.sh
