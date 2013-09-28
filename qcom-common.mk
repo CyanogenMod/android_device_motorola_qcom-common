@@ -60,8 +60,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     aplogd \
     modemlog \
-    batt_health \
-    charge_only_mode
+    batt_health
 
 # Misc
 PRODUCT_PACKAGES += \
