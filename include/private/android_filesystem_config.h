@@ -94,6 +94,7 @@
 #define AID_NET_BT_STACK  3008  /* bluetooth: access config files */
 #define AID_QCOM_ONCRPC   3009  /* can read/write /dev/oncrpc files */
 #define AID_QCOM_DIAG     3010  /* can read/write /dev/diag */
+#define AID_QCOM_THERMAL  3011  /* access for thermal-client socket */
 
 #define AID_MOT_ACCY      9000  /* access to accessory */
 #define AID_MOT_PWRIC     9001  /* power IC */
@@ -107,7 +108,9 @@
 #define AID_MOT_WHISPER   9009  /* Whisper Protocol access */
 #define AID_MOT_CAIF      9010  /* can create CAIF sockets */
 #define AID_MOT_DLNA      9011  /* DLNA native */
-#define AID_MOT_ATVC      9012 /* mot_atvc - This is for use of the ATVC service ONLY */
+#define AID_MOT_ATVC      9012  /* mot_atvc - This is for use of the ATVC service ONLY */
+#define AID_SPRINT_EXTENSION 9013  /* IKASANTISPRINT-149 sprint extension service */
+#define AID_MOT_DBVC      9014  /* mot_dbvc - This group is used to access DataBlock feature related data */
 
 #define AID_MISC          9998  /* access to misc storage */
 #define AID_NOBODY        9999
@@ -172,6 +175,7 @@ static const struct android_id_info android_ids[] = {
     { "loop_radio", AID_LOOP_RADIO, },
     { "qcom_oncrpc", AID_QCOM_ONCRPC, },
     { "qcom_diag", AID_QCOM_DIAG, },
+    { "qcom_thermal", AID_QCOM_THERMAL, },
     { "fm_radio",  AID_FM_RADIO, },
     { "mot_accy",	AID_MOT_ACCY, },
     { "mot_pwric",	AID_MOT_PWRIC, },
@@ -186,6 +190,8 @@ static const struct android_id_info android_ids[] = {
     { "mot_caif",	AID_MOT_CAIF, },
     { "mot_dlna",	AID_MOT_DLNA, },
     { "mot_atvc",	AID_MOT_ATVC, },
+    { "sprint_extension", AID_SPRINT_EXTENSION, },
+    { "mot_dbvc",	AID_MOT_DBVC, },
     { "misc",      AID_MISC, },
     { "nobody",    AID_NOBODY, },
     { "clat",      AID_CLAT, },
