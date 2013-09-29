@@ -20,8 +20,12 @@
 #define PROPERTY_PERMS_APPEND \
     { "persist.audio.",   AID_SYSTEM,   0 }, \
     { "tcmd.",            AID_MOT_TCMD, AID_MOT_WHISPER }, \
-    { "hw.whisper",      AID_MOT_WHISPER, 0 }, \
+    { "hw.whisper",       AID_MOT_WHISPER, 0 }, \
     { "sys.media.",       AID_RADIO, 0 }, \
-    { "persist.atvc.",     AID_SYSTEM, 0 },
+    { "persist.atvc.",    AID_MOT_ATVC,  0 }, \
+    { "persist.atvc.",    AID_SYSTEM, 0 }, \
+    { "hw.aov.",          AID_AUDIO,    0 }, \
+    { "persist.log.",     AID_SHELL,    0 }, \
+    { "persist.log.",     AID_LOG,      0 },
 
 #endif /* DEVICE_PERMS_H */
