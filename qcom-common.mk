@@ -80,7 +80,6 @@ PRODUCT_PACKAGES += qrngd
 PRODUCT_PACKAGES += \
     copybit.msm8960 \
     gralloc.msm8960 \
-    camera.msm8960 \
     hwcomposer.msm8960 \
     power.msm8960
 
