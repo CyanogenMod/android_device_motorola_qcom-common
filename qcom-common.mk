@@ -83,10 +83,6 @@ PRODUCT_PACKAGES += \
     hwcomposer.msm8960 \
     power.msm8960
 
-# GPS
-PRODUCT_PACKAGES += \
-    gps.msm8960
-
 # Misc
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
@@ -135,10 +131,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/scripts/mount_pds.sh:system/bin/mount_pds.sh \
     $(LOCAL_PATH)/scripts/qcamerasrvwrapper.sh:system/bin/qcamerasrvwrapper.sh \
     $(LOCAL_PATH)/scripts/sensorsqcomwrapper.sh:system/bin/sensorsqcomwrapper.sh \
-
-# GPS configuration
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/config/gps.conf:system/etc/gps.conf
 
 # We have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
