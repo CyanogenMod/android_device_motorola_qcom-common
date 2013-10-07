@@ -14,7 +14,6 @@ PRODUCT_COPY_FILES += \
 
 # NFC Support
 PRODUCT_PACKAGES += \
-    nfc.msm8960 \
     libnfc \
     libnfc_jni \
     Nfc \
