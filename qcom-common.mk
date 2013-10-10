@@ -86,6 +86,17 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
 
+# Crda
+PRODUCT_PACKAGES += \
+    crda \
+    linville.key.pub.pem \
+    regulatory.bin
+
+# Qcom SoftAP
+PRODUCT_PACKAGES += \
+    libQWiFiSoftApCfg \
+    libqsap_sdk
+
 # Live Wallpapers
 PRODUCT_PACKAGES += \
     LiveWallpapers \
