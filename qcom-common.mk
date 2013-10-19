@@ -90,6 +90,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     crda \
     linville.key.pub.pem \
+    regdbdump \
     regulatory.bin
 
 # Qcom SoftAP
