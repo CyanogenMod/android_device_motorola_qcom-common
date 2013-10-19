@@ -18,7 +18,7 @@ lib/libdrmfs.so
 lib/libdrmtime.so
 lib/libExtendedExtractor.so
 lib/libfrsdk.so
-lib/libgeofence.so
+vendor/lib/libgeofence.so
 lib/libmmosal.so
 lib/libmmparser.so
 lib/libnetmgr.so
@@ -26,7 +26,6 @@ lib/libqc-opt.so
 lib/libQSEEComAPI.so
 lib/libtime_genoff.so
 lib/libxml.so
-lib/libxt_v02.so
 
 # Graphics/video firmware
 etc/firmware/vidc.b00
@@ -36,30 +35,6 @@ etc/firmware/vidc.b03
 etc/firmware/vidc.mdt
 etc/firmware/vidc_1080p.fw
 etc/firmware/vidcfw.elf
-
-## Adreno GPU
-etc/firmware/a225p5_pm4.fw
-etc/firmware/a225_pfp.fw
-etc/firmware/a225_pm4.fw
-etc/firmware/a300_pfp.fw
-etc/firmware/a300_pm4.fw
-etc/firmware/leia_pfp_470.fw
-etc/firmware/leia_pm4_470.fw
-lib/egl/eglsubAndroid.so
-lib/egl/libEGL_adreno200.so
-lib/egl/libGLESv1_CM_adreno200.so
-lib/egl/libGLESv2_adreno200.so
-lib/egl/libGLESv2S3D_adreno200.so
-lib/egl/libq3dtools_adreno200.so
-lib/libc2d2_a3xx.so
-lib/libc2d2_z180.so
-lib/libC2D2.so
-lib/libgsl.so
-lib/libllvm-a3xx.so
-lib/libOpenCL.so
-lib/libOpenVG.so
-lib/libsc-a2xx.so
-lib/libsc-a3xx.so
 
 # DRM
 vendor/lib/drm/libdrmwvmplugin.so
