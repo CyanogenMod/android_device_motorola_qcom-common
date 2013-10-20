@@ -49,3 +49,5 @@ allow init_shell persist_file:dir { getattr write remove_name read add_name open
 allow init_shell persist_file:lnk_file { read create getattr unlink };
 allow init_shell persist_wifi_file:file getattr;
 allow init_shell persist_wifi_file:lnk_file unlink;
+allow init_shell diagnostic_device:chr_file { read write };
+allow init_shell init:fifo_file { read ioctl getattr };
