@@ -20,3 +20,7 @@ allow thermald { shared_log_device diagnostic_device }:chr_file rw_file_perms;
 
 # XXX Should we label with own type?
 allow thermald sysfs:file { open read write getattr };
+
+allow thermald self:capability chown;
+allow thermald socket_device:dir { write add_name };
+allow thermald socket_device:sock_file { create setattr };

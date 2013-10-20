@@ -87,6 +87,8 @@
 /persist/.bt_nv.bin            u:object_r:persist_bluetooth_file:s0
 /persist/drm/widevine(/.*)?    u:object_r:persist_drm_file:s0
 /persist/WCNSS_qcom_wlan_nv.bin u:object_r:persist_wifi_file:s0
+/persist/WCNSS_qcom_wlan_nv_calibration_persist.bin u:object_r:persist_wifi_file:s0
+/persist/WCNSS_qcom_wlan_nv_regulatory_persist.bin u:object_r:persist_wifi_file:s0
 
 # PDS partition
 /pds(/.*)?                     u:object_r:pds_file:s0

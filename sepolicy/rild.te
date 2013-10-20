@@ -11,3 +11,5 @@ allow rild diagnostic_device:chr_file rw_file_perms;
 allow rild sysfs:file { read open write getattr };
 
 allow rild self:socket { read write create ioctl };
+
+allow rild self:netlink_kobject_uevent_socket { read bind create setopt getopt };
