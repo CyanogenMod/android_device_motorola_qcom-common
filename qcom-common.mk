@@ -186,7 +186,9 @@ PRODUCT_PACKAGES += \
     setup_fs
 
 #wifi
-PRODUCT_PACKAGES += libnetcmdiface
+PRODUCT_PACKAGES += \
+    hostapd_default.conf \
+    libnetcmdiface
 
 # Symlinks
 PRODUCT_PACKAGES += \
