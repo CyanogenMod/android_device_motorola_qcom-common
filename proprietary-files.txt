@@ -1,4 +1,1 @@
 # put anything that is present on all devices, but is device specific in this file
-# Radio
-lib/libqmiservices.so
-lib/libril-qc-qmi-1.so
