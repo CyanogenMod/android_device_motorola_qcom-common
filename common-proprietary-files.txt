@@ -5,7 +5,6 @@ bin/dbvc_atvc_property_set
 bin/ds_fmc_appd
 bin/ftmipcd
 bin/hci_qcomm_init
-bin/netmgrd
 bin/nl_listener
 bin/port-bridge
 bin/qseecomd
@@ -18,14 +17,13 @@ lib/libdrmfs.so
 lib/libdrmtime.so
 lib/libExtendedExtractor.so
 lib/libfrsdk.so
-vendor/lib/libgeofence.so
 lib/libmmosal.so
 lib/libmmparser.so
-lib/libnetmgr.so
 lib/libqc-opt.so
 lib/libQSEEComAPI.so
 lib/libtime_genoff.so
 lib/libxml.so
+vendor/lib/libgeofence.so
 
 # Graphics/video firmware
 etc/firmware/vidc.b00
