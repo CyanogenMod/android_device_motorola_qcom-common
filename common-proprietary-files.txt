@@ -35,6 +35,7 @@ etc/firmware/vidc_1080p.fw
 etc/firmware/vidcfw.elf
 
 # DRM
+lib/libWVphoneAPI.so
 vendor/lib/drm/libdrmwvmplugin.so
 vendor/lib/libwvdrm_L1.so
 vendor/lib/libwvm.so
