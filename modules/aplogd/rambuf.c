@@ -52,9 +52,9 @@
 #include <sys/stat.h>
 #include <sys/uio.h>
 #include <fcntl.h>
-#include <cutils/logger.h>
-#include <cutils/logd.h>
-#include <cutils/logprint.h>
+#include <log/logger.h>
+#include <log/logd.h>
+#include <log/logprint.h>
 
 /* Aplogd includes */
 #include "rambuf.h"

@@ -16,10 +16,10 @@
  * Includes
  ************************/
 /* "Standard" Includes */
-#include <cutils/logger.h>
-#include <cutils/logd.h>
-#include <cutils/logprint.h>
-#include <cutils/event_tag_map.h>
+#include <log/logger.h>
+#include <log/logd.h>
+#include <log/logprint.h>
+#include <log/event_tag_map.h>
 
 #include <stdio.h>
 #include <stdlib.h>
