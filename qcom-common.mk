@@ -58,8 +58,7 @@ PRODUCT_PACKAGES += \
 
 # Motorola
 PRODUCT_PACKAGES += \
-    aplogd \
-    modemlog
+    aplogd
 
 # Misc
 PRODUCT_PACKAGES += \
