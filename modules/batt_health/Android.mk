@@ -1,3 +1,4 @@
+ifneq ($(filter mb886 xt897 xt897c xt901 xt907 xt925 xt926,$(TARGET_DEVICE)),)
 LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
 
@@ -19,3 +20,4 @@ LOCAL_MODULE_TAGS:= optional
 LOCAL_MODULE:= batt_health
 
 include $(BUILD_EXECUTABLE)
+endif

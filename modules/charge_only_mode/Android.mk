@@ -1,5 +1,6 @@
 # Copyright 2005 The Android Open Source Project
 
+ifneq ($(filter mb886 xt897 xt897c xt901 xt907 xt925 xt926,$(TARGET_DEVICE)),)
 LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
 
@@ -35,3 +36,4 @@ LOCAL_MODULE_TAGS:= optional
 LOCAL_MODULE:= charge_only_mode
 
 include $(BUILD_EXECUTABLE)
+endif
