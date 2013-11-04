@@ -249,4 +249,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.vc_call_vol_steps=7 \
     ro.modem.no_wdog_chk=1
 
+# QC time services
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.timed.enable=true
+
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0

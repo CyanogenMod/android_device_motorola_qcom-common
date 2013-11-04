@@ -9,6 +9,7 @@ bin/nl_listener
 bin/port-bridge
 bin/qseecomd
 bin/radish
+bin/time_daemon
 
 # Libs
 lib/libDivxDrm.so
