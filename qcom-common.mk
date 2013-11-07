@@ -66,7 +66,7 @@ PRODUCT_PACKAGES += \
     Torch
 
 # Lights
-PRODUCT_PACKAGES += lights.msm8960
+PRODUCT_PACKAGES += lights.MSM8960
 
 # Charger
 PRODUCT_PACKAGES += charger charger_res_images
