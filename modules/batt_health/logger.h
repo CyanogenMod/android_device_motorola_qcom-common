@@ -59,7 +59,7 @@ typedef struct
 {
     logger_record_hdr_t hdr;
     char phone_flash_version[PROPERTY_VALUE_MAX];
-    char phone_bootmode[BOOT_MODE_LENGTH];
+    char phone_bootmode[PROPERTY_VALUE_MAX];
     char battery_valid;
     int voltage_max_design;
     int voltage_min_design;

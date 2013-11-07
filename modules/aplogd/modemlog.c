@@ -116,7 +116,7 @@ void append_last_kmsg(FILE *outfile)
 
 void writePanicData(int pufile)
 {
-	char persist_powercuts[PROPERTY_KEY_MAX];
+	char persist_powercuts[PROPERTY_VALUE_MAX];
 	char countbuf[PROPERTY_VALUE_MAX];
 	int powercuts_count;
 	FILE *thefile = fdopen(pufile, "r");
