@@ -24,7 +24,6 @@ lib/libqc-opt.so
 lib/libQSEEComAPI.so
 lib/libtime_genoff.so
 lib/libxml.so
-vendor/lib/libgeofence.so
 
 # Graphics/video firmware
 etc/firmware/vidc.b00
