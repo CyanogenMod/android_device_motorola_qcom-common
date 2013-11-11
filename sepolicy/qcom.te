@@ -36,6 +36,7 @@ allow shell pds_file:dir { read search open getattr };
 allow shell pds_file:file getattr;
 allow init_shell pds_file:file { read open };
 allow init_shell pds_file:dir getattr;
+allow pds_file rootfs:filesystem associate;
 
 allow init_shell block_device:blk_file { read open };
 allow init_shell device:chr_file { getattr setattr write open };
@@ -45,6 +46,7 @@ allow init_shell self:capability sys_module;
 allow init_shell sensors_device:chr_file getattr;
 allow init_shell kernel:system syslog_mod;
 allow init_shell self:capability2 syslog;
+allow persist_file rootfs:filesystem associate;
 allow init_shell persist_file:dir { getattr write remove_name read add_name open };
 allow init_shell persist_file:lnk_file { read create getattr unlink };
 allow init_shell persist_wifi_file:file getattr;
