@@ -20,6 +20,11 @@ lib/libExtendedExtractor.so
 lib/libfrsdk.so
 lib/libmmosal.so
 lib/libmmparser.so
+lib/libOmxAacDec.so
+lib/libOmxAmrwbplusDec.so
+lib/libOmxEvrcDec.so
+lib/libOmxQcelp13Dec.so
+lib/libOmxWmaDec.so
 lib/libqc-opt.so
 lib/libQSEEComAPI.so
 lib/libtime_genoff.so
