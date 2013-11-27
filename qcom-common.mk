@@ -13,6 +13,9 @@
 # limitations under the License.
 
 LOCAL_PATH := device/motorola/qcom-common
+
+PRODUCT_BOOT_JARS += qcmediaplayer
+
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
@@ -171,7 +174,8 @@ PRODUCT_PACKAGES += \
     libOmxAmrEnc \
     libOmxEvrcEnc \
     libOmxQcelp13Enc \
-    libdashplayer
+    libdashplayer \
+    qcmediaplayer
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
