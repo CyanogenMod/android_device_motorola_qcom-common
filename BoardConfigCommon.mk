@@ -99,6 +99,7 @@ TARGET_USES_ION := true
 # Use retire fence from MDP driver
 TARGET_DISPLAY_USE_RETIRE_FENCE := true
 TARGET_USES_QCOM_BSP := true
+NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
