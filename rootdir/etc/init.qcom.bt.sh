@@ -64,7 +64,11 @@ config_bt ()
 {
   baseband=`getprop ro.baseband`
   target=`getprop ro.board.platform`
-  soc_hwid=`cat /sys/devices/system/soc/soc0/id`
+  if [ -f /sys/devices/soc0/soc_id ]; then
+    soc_hwid=`cat /sys/devices/soc0/soc_id`
+  else
+    soc_hwid=`cat /sys/devices/system/soc/soc0/id`
+  fi
   btsoc=`getprop qcom.bluetooth.soc`
 
   case $baseband in
@@ -72,8 +76,8 @@ config_bt ()
         setprop ro.qualcomm.bluetooth.opp true
         setprop ro.qualcomm.bluetooth.ftp true
         setprop ro.qualcomm.bluetooth.nap false
-        setprop ro.qualcomm.bluetooth.sap false
-        setprop ro.qualcomm.bluetooth.dun false
+        setprop ro.bluetooth.sap false
+        setprop ro.bluetooth.dun false
         # For MPQ as baseband is same for both
         case $soc_hwid in
           "130")
@@ -98,11 +102,11 @@ config_bt ()
         setprop ro.qualcomm.bluetooth.ftp true
         setprop ro.qualcomm.bluetooth.map true
         setprop ro.qualcomm.bluetooth.nap true
-        setprop ro.qualcomm.bluetooth.sap true
+        setprop ro.bluetooth.sap true
         case  $soc_hwid in
             "109")
                 logi "Enabling BT-DUN for Fusion3"
-                setprop ro.qualcomm.bluetooth.dun true
+                setprop ro.bluetooth.dun true
             ;;
         esac
         ;;
@@ -113,8 +117,8 @@ config_bt ()
         setprop ro.qualcomm.bluetooth.pbap true
         setprop ro.qualcomm.bluetooth.ftp true
         setprop ro.qualcomm.bluetooth.nap true
-        setprop ro.qualcomm.bluetooth.sap false
-        setprop ro.qualcomm.bluetooth.dun false
+        setprop ro.bluetooth.sap false
+        setprop ro.bluetooth.dun false
         setprop qcom.bt.le_dev_pwr_class 1
         case $btsoc in
           "ath3k")
@@ -133,18 +137,35 @@ config_bt ()
         setprop ro.qualcomm.bluetooth.ftp true
         setprop ro.qualcomm.bluetooth.map true
         setprop ro.qualcomm.bluetooth.nap true
-        setprop ro.qualcomm.bluetooth.sap true
-        setprop ro.qualcomm.bluetooth.dun true
+        setprop ro.bluetooth.sap true
+        setprop ro.bluetooth.dun true
         ;;
   esac
 
   #Enable Bluetooth Profiles specific to target Dynamically
   case $target in
     "msm8960")
-       if [ "$btsoc" != "ath3k" ] && [ "$socid" != "130" ]
+       if [ "$btsoc" != "ath3k" ] && [ "$soc_hwid" != "130" ]
        then
            setprop ro.bluetooth.hfp.ver 1.6
            setprop ro.qualcomm.bt.hci_transport smd
+       fi
+       ;;
+    "msm8974" | "msm8226" | "msm8610" )
+       if [ "$btsoc" != "ath3k" ]
+       then
+           setprop ro.bluetooth.hfp.ver 1.6
+           setprop ro.qualcomm.bt.hci_transport smd
+       fi
+       ;;
+    "apq8084" | "mpq8092" )
+       if [ "$btsoc" != "rome" ]
+       then
+           setprop ro.qualcomm.bt.hci_transport smd
+       elif [ "$btsoc" = "rome" ]
+       then
+           setprop ro.bluetooth.hfp.ver 1.6
+           setprop ro.bluetooth.dun true
        fi
        ;;
     *)

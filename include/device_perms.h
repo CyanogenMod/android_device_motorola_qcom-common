@@ -26,6 +26,10 @@
     { "persist.atvc.",    AID_SYSTEM, 0 }, \
     { "hw.aov.",          AID_AUDIO,    0 }, \
     { "persist.log.",     AID_SHELL,    0 }, \
-    { "persist.log.",     AID_LOG,      0 },
+    { "persist.log.",     AID_LOG,      0 }, \
+    { "persist.mot.proximity.", AID_RADIO, 0 }, \
+    { "persist.sprint.dm", AID_SPRINT_EXTENSION, 0}, \
+    { "persist.tcmd.", AID_MOT_TCMD, AID_SYSTEM }, \
+    { "persist.camera.", AID_MEDIA, 0 },
 
 #endif /* DEVICE_PERMS_H */

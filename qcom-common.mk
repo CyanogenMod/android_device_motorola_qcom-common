@@ -47,10 +47,7 @@ TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.usb.default \
-    audio_policy.msm8960 \
-    audio.primary.msm8960 \
     audio.r_submix.default \
-    alsa.msm8960 \
     libalsa-intf \
     libaudio-resampler \
     libaudioutils \
@@ -68,22 +65,11 @@ PRODUCT_PACKAGES += \
     tcpdump \
     Torch
 
-# Lights
-PRODUCT_PACKAGES += lights.MSM8960
-
 # Charger
 PRODUCT_PACKAGES += charger charger_res_images
 
 # QRNGD
 PRODUCT_PACKAGES += qrngd
-
-# HAL
-PRODUCT_PACKAGES += \
-    copybit.msm8960 \
-    gralloc.msm8960 \
-    hwcomposer.msm8960 \
-    memtrack.msm8960 \
-    power.msm8960
 
 # Misc
 PRODUCT_PACKAGES += \
@@ -112,11 +98,11 @@ PRODUCT_PACKAGES += \
 
 # Ramdisk
 PRODUCT_PACKAGES += \
-    init.qcom.usb.rc \
-    init.ril.rc
+    init.qcom.usb.rc
 
 # Init scripts
 PRODUCT_PACKAGES += \
+    init.class_main.sh \
     init.crda.sh \
     init.qcom.bt.sh \
     init.qcom.class_core.sh \
@@ -133,7 +119,8 @@ PRODUCT_PACKAGES += \
 # Thermal profiles
 PRODUCT_PACKAGES += \
     thermald-8960.conf \
-    thermald-ghost.conf
+    thermald-ghost.conf \
+    thermal-engine-8226.conf
 
 # Scripts
 PRODUCT_COPY_FILES += \
@@ -195,8 +182,6 @@ PRODUCT_PACKAGES += \
 # Symlinks
 PRODUCT_PACKAGES += \
     libxml2 \
-    mbhc.bin \
-    wcd9310_anc.bin \
     WCNSS_qcom_wlan_nv.bin
 
 # QC Perf

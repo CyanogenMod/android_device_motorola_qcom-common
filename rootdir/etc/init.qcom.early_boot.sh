@@ -29,9 +29,21 @@
 export PATH=/system/bin
 
 # Set platform variables
-soc_hwplatform=`cat /sys/devices/system/soc/soc0/hw_platform` 2> /dev/null
-soc_hwid=`cat /sys/devices/system/soc/soc0/id` 2> /dev/null
-soc_hwver=`cat /sys/devices/system/soc/soc0/platform_version` 2> /dev/null
+if [ -f /sys/devices/soc0/hw_platform ]; then
+    soc_hwplatform=`cat /sys/devices/soc0/hw_platform` 2> /dev/null
+else
+    soc_hwplatform=`cat /sys/devices/system/soc/soc0/hw_platform` 2> /dev/null
+fi
+if [ -f /sys/devices/soc0/soc_id ]; then
+    soc_hwid=`cat /sys/devices/soc0/soc_id` 2> /dev/null
+else
+    soc_hwid=`cat /sys/devices/system/soc/soc0/id` 2> /dev/null
+fi
+if [ -f /sys/devices/soc0/platform_version ]; then
+    soc_hwver=`cat /sys/devices/soc0/platform_version` 2> /dev/null
+else
+    soc_hwver=`cat /sys/devices/system/soc/soc0/platform_version` 2> /dev/null
+fi
 
 log -t BOOT -p i "MSM target '$1', SoC '$soc_hwplatform', HwID '$soc_hwid', SoC ver '$soc_hwver'"
 
@@ -115,6 +127,39 @@ case "$1" in
                 ;;
         esac
         ;;
+
+    "msm8974")
+        case "$soc_hwplatform" in
+            "Liquid")
+                setprop ro.sf.lcd_density 160
+                # Liquid do not have hardware navigation keys, so enable
+                # Android sw navigation bar
+                setprop ro.hw.nav_keys 0
+                ;;
+            "Dragon")
+                setprop ro.sf.lcd_density 240
+                ;;
+            *)
+                setprop ro.sf.lcd_density 320
+                ;;
+        esac
+        ;;
+
+    "msm8226")
+        case "$soc_hwplatform" in
+            *)
+                setprop ro.sf.lcd_density 320
+                ;;
+        esac
+        ;;
+
+    "msm8610" | "apq8084")
+        case "$soc_hwplatform" in
+            *)
+                setprop ro.sf.lcd_density 240
+                ;;
+        esac
+        ;;
 esac
 
 # Setup HDMI related nodes & permissions
@@ -127,18 +172,18 @@ do
     value=`cat $file/msm_fb_type`
     case "$value" in
             "dtv panel")
-        chown system.graphics $file/hpd
-        chown system.graphics $file/vendor_name
-        chown system.graphics $file/product_description
-        chmod 0664 $file/hpd
-        chmod 0664 $file/vendor_name
-        chmod 0664 $file/product_description
-        chmod 0664 $file/video_mode
-        chmod 0664 $file/format_3d
+        chown -h system.graphics $file/hpd
+        chown -h system.graphics $file/vendor_name
+        chown -h system.graphics $file/product_description
+        chmod -h 0664 $file/hpd
+        chmod -h 0664 $file/vendor_name
+        chmod -h 0664 $file/product_description
+        chmod -h 0664 $file/video_mode
+        chmod -h 0664 $file/format_3d
         # create symbolic link
         ln -s "/dev/graphics/fb"$fb_cnt /dev/graphics/hdmi
         # Change owner and group for media server and surface flinger
-        chown system.system $file/format_3d;;
+        chown -h system.system $file/format_3d;;
     esac
     fb_cnt=$(( $fb_cnt + 1))
 done

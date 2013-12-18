@@ -47,8 +47,8 @@ case "$serialno" in
     echo "$serialno" > /sys/class/android_usb/android0/iSerial
 esac
 
-chown root.system /sys/devices/platform/msm_hsusb/gadget/wakeup
-chmod 220 /sys/devices/platform/msm_hsusb/gadget/wakeup
+chown -h root.system /sys/devices/platform/msm_hsusb/gadget/wakeup
+chmod -h 220 /sys/devices/platform/msm_hsusb/gadget/wakeup
 
 #
 # Allow persistent usb charging disabling
@@ -122,7 +122,7 @@ target=`getprop ro.product.device`
 cdromname="/dev/block/platform/msm_sdcc.1/by-name/cdrom"
 cdromenable=`getprop persist.service.cdrom.enable`
 case "$target" in
-        "msm7627a")
+        "msm8226" | "msm8610")
                 case "$cdromenable" in
                         0)
                                 echo "" > /sys/class/android_usb/android0/f_mass_storage/lun0/file
@@ -142,6 +142,18 @@ case "$target" in
     "msm8974")
         echo hsusb > /sys/bus/platform/devices/usb_bam/enable
     ;;
+    "apq8084")
+	if [ "$baseband" == "apq" ]; then
+		echo "msm_hsic_host" > /sys/bus/platform/drivers/xhci_msm_hsic/unbind
+	fi
+    ;;
+    "msm8226")
+         if [ -e /sys/bus/platform/drivers/msm_hsic_host ]; then
+             if [ ! -L /sys/bus/usb/devices/1-1 ]; then
+                 echo msm_hsic_host > /sys/bus/platform/drivers/msm_hsic_host/unbind
+             fi
+         fi
+    ;;
 esac
 
 #
@@ -159,7 +171,7 @@ case "$baseband" in
         esac
         echo 1 > /sys/module/rmnet_usb/parameters/rmnet_data_init
         # Allow QMUX daemon to assign port open wait time
-        chown radio.radio /sys/devices/virtual/hsicctl/hsicctl0/modem_wait
+        chown -h radio.radio /sys/devices/virtual/hsicctl/hsicctl0/modem_wait
     ;;
     "dsda2")
           echo 2 > /sys/module/rmnet_usb/parameters/no_rmnet_devs
@@ -183,6 +195,6 @@ case "$baseband" in
           esac
           echo 1 > /sys/module/rmnet_usb/parameters/rmnet_data_init
           # Allow QMUX daemon to assign port open wait time
-          chown radio.radio /sys/devices/virtual/hsicctl/hsicctl0/modem_wait
+          chown -h radio.radio /sys/devices/virtual/hsicctl/hsicctl0/modem_wait
     ;;
 esac
