@@ -13,7 +13,6 @@ export VENDORDEVICEDIR
 
 BASE=../../../vendor/$VENDOR/$VENDORDEVICEDIR/proprietary
 rm -rf $BASE/*
-rm -rf $BASE/../packages 2> /dev/null
 
 for FILE in `egrep -v '(^#|^$)' ../$DEVICE/device-proprietary-files.txt`; do
     echo "Extracting /system/$FILE ..."
@@ -74,12 +73,6 @@ for FILE in `egrep -v '(^#|^$)' ../qcom-common/proprietary-files.txt`; do
         fi
     fi
 done
-
-    if [ -d $BASE/app ]; then
-        mkdir -p ${BASE}/../packages
-        mv $BASE/app/* ${BASE}/../packages/
-    fi
-rmdir ${BASE}/app 2> /dev/null
 
 BASE=../../../vendor/$VENDOR/$FAMILY/proprietary
 rm -rf $BASE/*
@@ -145,5 +138,5 @@ for FILE in `egrep -v '(^#|^$)' ../qcom-common/common-proprietary-files.txt`; do
     fi
 done
 
-echo "This is designed to extract files from an official cm-10.2 build"
+echo "This is designed to extract files from an official cm-11.0 build"
 ../qcom-common/setup-makefiles.sh
