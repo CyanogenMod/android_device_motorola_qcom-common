@@ -228,8 +228,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.qc.sub.rdump.max=20
 
 # Radio and Telephony
+ifneq ($(TARGET_BOARD_PLATFORM),msm8226)
 PRODUCT_PROPERTY_OVERRIDES += \
-    rild.libpath=/system/lib/libril-qc-qmi-1.so \
+    rild.libpath=/system/lib/libril-qc-qmi-1.so
+endif
+PRODUCT_PROPERTY_OVERRIDES += \
     ril.subscription.types=NV,RUIM \
     keyguard.no_require_sim=true \
     ro.use_data_netmgrd=true \
