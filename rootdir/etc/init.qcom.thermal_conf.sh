@@ -82,6 +82,9 @@ if [ ! -h $THERMALD_CONF_SYMLINK ]; then
      ln -s /etc/thermald-ghost.conf /dev/thermald.conf 2>/dev/null
      ;;
 
+     "158") #falcon do nothing
+     ;;
+
      *) #MSM8960, etc
      ln -s /etc/thermald-8960.conf $THERMALD_CONF_SYMLINK 2>/dev/null
      ;;
