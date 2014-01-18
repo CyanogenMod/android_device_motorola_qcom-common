@@ -32,4 +32,7 @@
     { "persist.tcmd.", AID_MOT_TCMD, AID_SYSTEM }, \
     { "persist.camera.", AID_MEDIA, 0 },
 
+#define CONTROL_PERMS_APPEND \
+    { "mmi-ril-daemon",AID_RADIO, AID_RADIO },
+
 #endif /* DEVICE_PERMS_H */
