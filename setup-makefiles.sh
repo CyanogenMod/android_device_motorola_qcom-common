@@ -493,7 +493,7 @@ PRODUCT_PACKAGES += libtime_genoff
 
 EOF
 
-(cat << EOF) > ../../../$OUTDIR/proprietary/vendor/lib/Android.mk
+(cat << EOF) > ../../../$OUTDIR/proprietary/lib/Android.mk
 # Copyright (C) 2014 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
