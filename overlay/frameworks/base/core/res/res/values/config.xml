@@ -115,14 +115,38 @@
         <item>246</item>
     </integer-array>
 
+    <!-- The number of degrees to rotate the display when the device is in a desk dock.
+         A value of -1 means no change in orientation by default. -->
+    <integer name="config_deskDockRotation">90</integer>
+
+    <!-- The number of degrees to rotate the display when the device is in a car dock.
+         A value of -1 means no change in orientation by default. -->
+    <integer name="config_carDockRotation">-1</integer>
+
+    <!-- Indicate whether the lid state impacts the accessibility of
+         the physical keyboard.  0 means it doesn't, 1 means it is accessible
+         when the lid is open, 2 means it is accessible when the lid is
+         closed.  The default is 1. -->
+    <integer name="config_lidKeyboardAccessibility">1</integer>
+
+    <!-- Indicate whether the lid state impacts the accessibility of
+         the physical keyboard.  0 means it doesn't, 1 means it is accessible
+         when the lid is open, 2 means it is accessible when the lid is
+         closed.  The default is 0. -->
+    <integer name="config_lidNavigationAccessibility">1</integer>
+
+    <!-- Sets whether menu shortcuts should be displayed on panel menus when
+         a keyboard is present. -->
+    <bool name="config_showMenuShortcutsWhenKeyboardPresent">false</bool>
+
     <!-- Array of output values for button backlight corresponding to the LUX values
                   in the config_autoBrightnessLevels array.  This array should have size one greater
          than the size of the config_autoBrightnessLevels array.
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessButtonBacklightValues">
-        <item>255</item>
-        <item>255</item>
-        <item>100</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
         <item>0</item>
         <item>0</item>
     </integer-array>
@@ -132,12 +156,17 @@
          than the size of the config_autoBrightnessLevels array.
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessKeyboardBacklightValues">
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
+        <item>140</item>
+        <item>100</item>
+        <item>25</item>
         <item>0</item>
         <item>0</item>
     </integer-array>
+
+    <integer name="config_keyboardBrightnessSettingDefault">255</integer>
+
+    <!-- Workaround for devices with broken keyboards -->
+    <bool name="config_forceDisableHardwareKeyboard">false</bool>
 
     <integer name="config_buttonBrightnessSettingDefault">0</integer>
 
@@ -234,6 +263,7 @@
             4 - Menu
             8 - Assistant (search)
             16 - App switch
+            32 - Camera
         For example, a device with Home, Back and Menu keys would set this
         config to 7. -->
     <integer name="config_deviceHardwareKeys">0</integer>
@@ -243,4 +273,7 @@
 
     <!-- Disable lockscreen translucent decor by default -->
     <bool name="config_enableLockScreenTranslucentDecor">true</bool>
+
+    <!-- Enables swipe versus poly-finger touch disambiguation in the KeyboardView -->
+    <bool name="config_swipeDisambiguation">true</bool>
 </resources>
