@@ -18,6 +18,8 @@ lib/libdrmfs.so
 lib/libdrmtime.so
 lib/libExtendedExtractor.so
 lib/libfrsdk.so
+lib/libgeofence.so
+lib/libloc_api_v02.so
 lib/libmmosal.so
 lib/libmmparser.so
 lib/libOmxAacDec.so
