@@ -97,19 +97,27 @@ if [ ! -h $THERMAL_ENGINE_CONF_SYMLINK ]; then
  # create symlink to target-specific config file
  case "$platformid" in
      "109" | "130" | "172") #APQ/MPQ8064 & APQ/MPQ8064aa
-     ln -s /etc/thermal-engine-8064.conf $THERMAL_ENGINE_CONF_SYMLINK 2>/dev/null
+     if [ -e "/etc/thermal-engine-8064.conf" ]; then
+        ln -s /etc/thermal-engine-8064.conf $THERMAL_ENGINE_CONF_SYMLINK 2>/dev/null
+     fi
      ;;
 
      "153") #APQ/MPQ8064ab
-     ln -s /etc/thermal-engine-8064ab.conf $THERMAL_ENGINE_CONF_SYMLINK 2>/dev/null
+     if [ -e "/etc/thermal-engine-8064ab.conf" ]; then
+        ln -s /etc/thermal-engine-8064ab.conf $THERMAL_ENGINE_CONF_SYMLINK 2>/dev/null
+     fi
      ;;
 
      "116" | "117" | "118" | "119" | "120" | "121" | "142" | "143" | "144" | "160" | "179" | "180" | "181") #MSM8x30&MSM8x27
-     ln -s /etc/thermal-engine-8930.conf $THERMAL_ENGINE_CONF_SYMLINK 2>/dev/null
+     if [ -e "/etc/thermal-engine-8930.conf" ]; then
+        ln -s /etc/thermal-engine-8930.conf $THERMAL_ENGINE_CONF_SYMLINK 2>/dev/null
+     fi
      ;;
 
      *) #MSM8960, etc
-     ln -s /etc/thermal-engine-8960.conf $THERMAL_ENGINE_CONF_SYMLINK 2>/dev/null
+     if [ -e "/etc/thermal-engine-8960.conf" ]; then
+        ln -s /etc/thermal-engine-8960.conf $THERMAL_ENGINE_CONF_SYMLINK 2>/dev/null
+     fi
      ;;
  esac
 fi
