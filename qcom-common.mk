@@ -216,9 +216,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
-    lpa.decode=false \
-    tunnel.decode=true \
-    tunnel.audiovideo.decode=true \
+    lpa.decode=true \
     qcom.hw.aac.encoder=true \
     af.resampler.quality=255 \
     persist.audio.lowlatency.rec=false
