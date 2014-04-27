@@ -177,3 +177,5 @@ BOARD_SEPOLICY_UNION += \
 	vold.te \
 	wpa_supplicant.te \
 	zygote.te
+
+PRODUCT_BOOT_JARS := $(subst $(space),:,$(PRODUCT_BOOT_JARS))
