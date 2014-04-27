@@ -23,7 +23,6 @@ allow system_app cache_file:file { write lock open setattr };
 allow system sdcard_internal:dir search;
 allow system sdcard_internal:file { read open };
 allow system init_shell:binder call;
-allow system su:binder call;
 allow system sysfs_writable:file { write open };
 allow system device:chr_file { read ioctl open };
 allow system camera:binder transfer;

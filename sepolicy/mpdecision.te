@@ -22,3 +22,4 @@ allow mpdecision socket_device:sock_file { create setattr };
 
 allow mpdecision system_data_file:file { open append };
 allow mpdecision power_control_device:chr_file { write open };
+allow mpdecision sysfs_devices_system_cpu:file write;
