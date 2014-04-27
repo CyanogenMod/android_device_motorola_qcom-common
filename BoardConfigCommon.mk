@@ -108,8 +108,8 @@ USE_DEVICE_SPECIFIC_CAMERA := true
 #camera abi compatiblily
 TARGET_DISPLAY_INSECURE_MM_HEAP := true
 
-# Power
-TARGET_USES_CM_POWERHAL := true
+# Use CM PowerHAL by default if not definied elsewhere
+TARGET_POWERHAL_VARIANT ?= cm
 
 # Number of supplementary service groups allowed by init
 TARGET_NR_SVC_SUPP_GIDS := 28
