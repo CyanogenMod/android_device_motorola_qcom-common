@@ -565,7 +565,7 @@ on property:sys.usb.config=mtp,adb
     write /sys/class/android_usb/android0/bDeviceProtocol 0
     write /sys/class/android_usb/android0/idVendor 0x22b8
     write /sys/class/android_usb/android0/idProduct ${ro.usb.mtp_adb}
-    write /sys/class/android_usb/android0/functions mtp,usbnet,adb
+    write /sys/class/android_usb/android0/functions mtp,adb
     write /sys/class/android_usb/android0/enable 1
     start adbd
     setprop sys.usb.state ${sys.usb.config}
