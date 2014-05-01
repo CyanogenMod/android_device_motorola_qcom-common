@@ -28,3 +28,5 @@ allow sensors power_control_device:chr_file { write open append };
 allow sensors sysfs:file { open append read write getattr };
 
 allow sensors system_data_file:file { write open };
+allow sensors input_device:chr_file { read ioctl open };
+allow sensors input_device:dir { read open };
