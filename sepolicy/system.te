@@ -26,3 +26,4 @@ allow system init_shell:binder call;
 allow system sysfs_writable:file { write open };
 allow system device:chr_file { read ioctl open };
 allow system camera:binder transfer;
+allow system cache_backup_file:file relabelto;
