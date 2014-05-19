@@ -24,3 +24,4 @@ allow thermald sysfs:file { open read write getattr };
 allow thermald self:capability chown;
 allow thermald socket_device:dir { write add_name };
 allow thermald socket_device:sock_file { create setattr };
+allow thermald qmuxd_socket:dir remove_name;

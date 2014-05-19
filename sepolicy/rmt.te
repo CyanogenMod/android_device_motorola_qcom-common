@@ -27,3 +27,4 @@ allow rmt sysfs:file { open append read getattr write };
 allow rmt sysfs:dir rw_dir_perms;
 
 allow rmt radio_efs_file:file { read open };
+allow rmt sysfs_wake_lock:file { append open };
