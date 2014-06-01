@@ -177,3 +177,9 @@ BOARD_SEPOLICY_UNION += \
 	vold.te \
 	wpa_supplicant.te \
 	zygote.te
+
+ifneq ($(TARGET_BUILD_VARIANT),user)
+	BOARD_SEPOLICY_UNION += su.te
+endif
+
+PRODUCT_BOOT_JARS := $(subst $(space),:,$(PRODUCT_BOOT_JARS))

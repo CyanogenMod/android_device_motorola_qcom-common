@@ -248,8 +248,11 @@ void set_brightness(float percent)
 	fd = open("/sys/class/backlight/lcd-backlight/brightness", O_RDWR);
 	if (fd < 0) {
 		fd = open("/sys/class/backlight/lm3532_bl/brightness", O_RDWR);
-		if (fd < 0)
+		if (fd < 0) {
+			fd = open("/sys/class/leds/lcd-backlight/brightness", O_RDWR);
+			if (fd < 0)
 			return;
+		}
 	}
 	n = sprintf(b, "%d\n", (int)(255*percent));
 	write(fd, b, n);
@@ -265,7 +268,7 @@ void set_button_brightness(float percent)
 	fd = open("/sys/class/leds/button-backlight/brightness", O_RDWR);
 	if (fd < 0)
 		return;
-	n = sprintf(b, "%d\n", (int)(255*percent));
+	n = sprintf(b, "%d\n", (int)(126*percent));
 	write(fd, b, n);
 	close(fd);
 }

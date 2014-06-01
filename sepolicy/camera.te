@@ -34,4 +34,4 @@ allow camera servicemanager:binder call;
 allow camera socket_device:sock_file write;
 allow camera system:binder call;
 allow camera system:unix_stream_socket { read write setopt };
-allow camera system_data_file:file open;
+allow camera system_data_file:file { open write };
