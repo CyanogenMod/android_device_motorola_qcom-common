@@ -29,7 +29,7 @@ lib/libOmxQcelp13Dec.so
 lib/libOmxWmaDec.so
 lib/libqc-opt.so
 lib/libQSEEComAPI.so
-lib/libtime_genoff.so
+-lib/libtime_genoff.so
 lib/libxml.so
 
 # Graphics/video firmware
