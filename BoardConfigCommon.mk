@@ -165,6 +165,7 @@ BOARD_SEPOLICY_UNION += \
 	radio.te \
 	rild.te \
 	rmt.te \
+	sdcard_internal.te \
 	sdcardd.te \
 	sensors.te \
 	shell.te \
