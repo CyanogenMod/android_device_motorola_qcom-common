@@ -14,10 +14,6 @@ vendor/lib/libwvdrm_L1.so
 vendor/lib/libwvm.so
 vendor/lib/libWVStreamControlAPI_L1.so
 
-# GPS
-lib/libgeofence.so
-lib/libloc_api_v02.so
-
 # Graphics firmware
 etc/firmware/vidc.b00
 etc/firmware/vidc.b01
