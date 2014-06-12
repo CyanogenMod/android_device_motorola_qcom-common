@@ -30,3 +30,4 @@ allow netmgrd radio_prop:property_service set;
 allow netmgrd kernel:system module_request;
 allow netmgrd self:rawip_socket { write create setopt getopt };
 allow netmgrd proc:file write;
+allow netmgrd self:netlink_xfrm_socket { bind create };
