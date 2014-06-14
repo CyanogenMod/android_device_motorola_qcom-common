@@ -1,38 +1,25 @@
-# Bins
-bin/bridgemgrd
+# Bluetooth
 bin/btnvtool
-bin/dbvc_atvc_property_set
-bin/ds_fmc_appd
-bin/ftmipcd
 bin/hci_qcomm_init
-bin/nl_listener
-bin/port-bridge
-bin/qseecomd
-bin/radish
-bin/time_daemon
 
-# Libs
-lib/libDivxDrm.so
+# DRM
+bin/qseecomd
 lib/libdrmdiag.so
 lib/libdrmfs.so
 lib/libdrmtime.so
-lib/libExtendedExtractor.so
 lib/libfrsdk.so
+lib/libQSEEComAPI.so
+lib/libWVphoneAPI.so
+vendor/lib/drm/libdrmwvmplugin.so
+vendor/lib/libwvdrm_L1.so
+vendor/lib/libwvm.so
+vendor/lib/libWVStreamControlAPI_L1.so
+
+# GPS
 lib/libgeofence.so
 lib/libloc_api_v02.so
-lib/libmmosal.so
-lib/libmmparser.so
-lib/libOmxAacDec.so
-lib/libOmxAmrwbplusDec.so
-lib/libOmxEvrcDec.so
-lib/libOmxQcelp13Dec.so
-lib/libOmxWmaDec.so
-lib/libqc-opt.so
-lib/libQSEEComAPI.so
--lib/libtime_genoff.so
-lib/libxml.so
 
-# Graphics/video firmware
+# Graphics firmware
 etc/firmware/vidc.b00
 etc/firmware/vidc.b01
 etc/firmware/vidc.b02
@@ -41,9 +28,34 @@ etc/firmware/vidc.mdt
 etc/firmware/vidc_1080p.fw
 etc/firmware/vidcfw.elf
 
-# DRM
-lib/libWVphoneAPI.so
-vendor/lib/drm/libdrmwvmplugin.so
-vendor/lib/libwvdrm_L1.so
-vendor/lib/libwvm.so
-vendor/lib/libWVStreamControlAPI_L1.so
+# Media
+lib/libDivxDrm.so
+lib/libExtendedExtractor.so
+lib/libmmosal.so
+lib/libmmparser.so
+lib/libOmxAacDec.so
+lib/libOmxAmrwbplusDec.so
+lib/libOmxEvrcDec.so
+lib/libOmxQcelp13Dec.so
+lib/libOmxWmaDec.so
+
+# Moto
+bin/dbvc_atvc_property_set
+
+# Perf
+lib/libqc-opt.so
+
+# Radio
+bin/radish
+
+# Time services
+bin/time_daemon
+-lib/libtime_genoff.so
+
+# Misc
+bin/bridgemgrd
+bin/ds_fmc_appd
+bin/ftmipcd
+bin/nl_listener
+bin/port-bridge
+lib/libxml.so
