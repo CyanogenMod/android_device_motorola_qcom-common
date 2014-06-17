@@ -85,8 +85,9 @@ if [ ! -h $THERMALD_CONF_SYMLINK ]; then
      "158") #falcon do nothing
      ;;
 
-     "87") #msm89603.4
+     "87") #msm8960 - 3.4
      ln -s /etc/thermald-8960.conf /dev/thermald.conf 2>/dev/null
+     ln -s /etc/thermald-8960.conf $THERMALD_CONF_SYMLINK 2>/dev/null
      ;;
 
      *) #MSM8960, etc
