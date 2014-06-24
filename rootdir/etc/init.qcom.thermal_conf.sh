@@ -78,20 +78,25 @@ if [ ! -h $THERMALD_CONF_SYMLINK ]; then
      ln -s /etc/thermald-8960ab.conf $THERMALD_CONF_SYMLINK 2>/dev/null
      ;;
 
-     "138") #ghost
-     ln -s /etc/thermald-ghost.conf /dev/thermald.conf 2>/dev/null
-     ;;
-
      "158") #falcon do nothing
-     ;;
-
-     "87") #msm8960 - 3.4
-     ln -s /etc/thermald-8960.conf /dev/thermald.conf 2>/dev/null
-     ln -s /etc/thermald-8960.conf $THERMALD_CONF_SYMLINK 2>/dev/null
      ;;
 
      *) #MSM8960, etc
      ln -s /etc/thermald-8960.conf $THERMALD_CONF_SYMLINK 2>/dev/null
+     ;;
+ esac
+fi
+
+# Check if symlink does not exist
+if [ ! -h /dev/thermald.conf ]; then
+ # create symlink to target-specific config file
+ case "$platformid" in
+     "87") #msm8960 - 3.4
+     ln -s /etc/thermald-8960.conf /dev/thermald.conf 2>/dev/null
+     ;;
+
+     "138") #ghost
+     ln -s /etc/thermald-ghost.conf /dev/thermald.conf 2>/dev/null
      ;;
  esac
 fi
