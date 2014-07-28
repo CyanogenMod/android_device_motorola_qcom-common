@@ -42,7 +42,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #define BRIGHTNESS_OFF 0
 #define BRIGHTNESS_DIM 20
-#define BRIGHTNESS_ON 255
+#define BRIGHTNESS_ON 126
 #define BRIGHTNESS_LOW_BATTERY 10
 #define LOW_BATTERY_THRESHOLD 10
 
@@ -61,6 +61,9 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define CHARGING_FULL_ON 0
 #define CHARGING_FULL_OFF 0
 #define LED_ON_THRESHOLD 90
+
+static int ac_online = 0;
+static int max_brightness = 0;
 
 static int sys_get_int_parameter(const char *path, int missing_value)
 {
@@ -93,7 +96,12 @@ static int sys_get_string_parameter(const char *path, char *s, int size)
 
 int is_plugged_into_ac()
 {
-	return sys_get_int_parameter("/sys/class/power_supply/ac/online", 0);
+	ac_online = (access("/sys/class/power_supply/ac/online", R_OK) == 0);
+	if (ac_online) {
+	    return sys_get_int_parameter("/sys/class/power_supply/ac/online", 0);
+	} else {
+	    return sys_get_int_parameter("/sys/class/power_supply/pm8921-dc/online", 0);
+	}
 }
 
 int is_plugged_into_usb()
@@ -246,15 +254,18 @@ void set_brightness(float percent)
 
         ALOGD("set_brightness: %f\n", percent);
 	fd = open("/sys/class/backlight/lcd-backlight/brightness", O_RDWR);
+	max_brightness = sys_get_int_parameter("/sys/class/backlight/lcd-backlight/max_brightness", 0);
 	if (fd < 0) {
 		fd = open("/sys/class/backlight/lm3532_bl/brightness", O_RDWR);
+		max_brightness = sys_get_int_parameter("/sys/class/backlight/lm3532_bl/max_brightness", 0);
 		if (fd < 0) {
 			fd = open("/sys/class/leds/lcd-backlight/brightness", O_RDWR);
+			max_brightness = sys_get_int_parameter("/sys/class/leds/lcd-backlight/max_brightness", 0);
 			if (fd < 0)
 			return;
 		}
 	}
-	n = sprintf(b, "%d\n", (int)(255*percent));
+	n = sprintf(b, "%d\n", (int)(max_brightness*percent));
 	write(fd, b, n);
 	close(fd);
 }
