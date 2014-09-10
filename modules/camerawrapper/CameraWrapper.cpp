@@ -94,12 +94,27 @@ static int check_vendor_module()
 const static char * scene_mode_values[] =
         {"auto,hdr,action,portrait,landscape,night,night-portrait,theatre,beach,snow,sunset,steadyphoto,fireworks,sports,party,candlelight,backlight,flowers,AR", "auto"};
 
+#define KEY_VIDEO_HFR_VALUES "video-hfr-values"
+
 static char * camera_fixup_getparams(int id, const char * settings)
 {
     android::CameraParameters params;
     params.unflatten(android::String8(settings));
 
-    // fix params here
+#ifdef LOG_PARAMETERS
+    ALOGD("%s: original parameters:", __FUNCTION__);
+    params.dump();
+#endif
+
+    /* Camera app expects the "off" HFR value to come as the last one,
+     * so if the vendor provided values start with it, move it at tail.
+     */
+    const char* hfrValues = params.get(KEY_VIDEO_HFR_VALUES);
+    if (hfrValues && *hfrValues && !strncmp(hfrValues, "off,", 4)) {
+        char tmp[strlen(hfrValues) + 1];
+        sprintf(tmp, "%s,off", hfrValues + 4);
+        params.set(KEY_VIDEO_HFR_VALUES, tmp);
+    }
 
 /*
     // add hdr scene mode to existing scene modes
@@ -109,6 +124,10 @@ static char * camera_fixup_getparams(int id, const char * settings)
     char *ret = strdup(strParams.string());
 
     ALOGD("%s: get parameters fixed up", __FUNCTION__);
+#ifdef LOG_PARAMETERS
+    ALOGD("%s: fixed parameters:", __FUNCTION__);
+    params.dump();
+#endif
     return ret;
 }
 
@@ -117,6 +136,11 @@ char * camera_fixup_setparams(int id, const char * settings)
     android::CameraParameters params;
     params.unflatten(android::String8(settings));
 
+#ifdef LOG_PARAMETERS
+    ALOGD("%s: original parameters:", __FUNCTION__);
+    params.dump();
+#endif
+
     // fix params here
 
 
@@ -124,6 +148,10 @@ char * camera_fixup_setparams(int id, const char * settings)
     char *ret = strdup(strParams.string());
 
     ALOGD("%s: set parameters fixed up", __FUNCTION__);
+#ifdef LOG_PARAMETERS
+    ALOGD("%s: fixed parameters:", __FUNCTION__);
+    params.dump();
+#endif
     return ret;
 }
 
@@ -335,10 +363,6 @@ int camera_set_parameters(struct camera_device * device, const char *params)
     char *tmp = NULL;
     tmp = camera_fixup_setparams(CAMERA_ID(device), params);
 
-#ifdef LOG_PARAMETERS
-    __android_log_write(ANDROID_LOG_VERBOSE, LOG_TAG, tmp+350);
-#endif
-
     int ret = VENDOR_CALL(device, set_parameters, tmp);
     return ret;
 }
@@ -353,17 +377,9 @@ char* camera_get_parameters(struct camera_device * device)
 
     char* params = VENDOR_CALL(device, get_parameters);
 
-#ifdef LOG_PARAMETERS
-    __android_log_write(ANDROID_LOG_VERBOSE, LOG_TAG, params);
-#endif
-
     char * tmp = camera_fixup_getparams(CAMERA_ID(device), params);
     VENDOR_CALL(device, put_parameters, params);
     params = tmp;
-
-#ifdef LOG_PARAMETERS
-    __android_log_write(ANDROID_LOG_VERBOSE, LOG_TAG, params);
-#endif
 
     return params;
 }
