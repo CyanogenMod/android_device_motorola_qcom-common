@@ -21,7 +21,6 @@
 *
 */
 
-
 //#define LOG_NDEBUG 0
 //#define LOG_PARAMETERS
 
@@ -94,8 +93,6 @@ static int check_vendor_module()
 const static char * scene_mode_values[] =
         {"auto,hdr,action,portrait,landscape,night,night-portrait,theatre,beach,snow,sunset,steadyphoto,fireworks,sports,party,candlelight,backlight,flowers,AR", "auto"};
 
-#define KEY_VIDEO_HFR_VALUES "video-hfr-values"
-
 static char * camera_fixup_getparams(int id, const char * settings)
 {
     android::CameraParameters params;
@@ -109,11 +106,12 @@ static char * camera_fixup_getparams(int id, const char * settings)
     /* Camera app expects the "off" HFR value to come as the last one,
      * so if the vendor provided values start with it, move it at tail.
      */
-    const char* hfrValues = params.get(KEY_VIDEO_HFR_VALUES);
+    const char* hfrValues =
+            params.get(android::CameraParameters::KEY_SUPPORTED_VIDEO_HIGH_FRAME_RATE_MODES);
     if (hfrValues && *hfrValues && !strncmp(hfrValues, "off,", 4)) {
         char tmp[strlen(hfrValues) + 1];
         sprintf(tmp, "%s,off", hfrValues + 4);
-        params.set(KEY_VIDEO_HFR_VALUES, tmp);
+        params.set(android::CameraParameters::KEY_SUPPORTED_VIDEO_HIGH_FRAME_RATE_MODES, tmp);
     }
 
 /*
@@ -141,8 +139,14 @@ char * camera_fixup_setparams(int id, const char * settings)
     params.dump();
 #endif
 
-    // fix params here
-
+    /* no 'zsl-values' mean JB camera, which needs 'mode' parameter set to 'high-quality-zsl'
+     * to enable ZSL
+     */
+    const char *zslValues = params.get(android::CameraParameters::KEY_SUPPORTED_ZSL_MODES);
+    const char *zsl = params.get(android::CameraParameters::KEY_ZSL);
+    if (!zslValues && zsl && *zsl && !strncmp(zsl, "on", 2)) {
+        params.set("mode", "high-quality-zsl");
+    }
 
     android::String8 strParams = params.flatten();
     char *ret = strdup(strParams.string());
