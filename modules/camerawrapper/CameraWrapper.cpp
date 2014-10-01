@@ -21,7 +21,6 @@
 *
 */
 
-
 //#define LOG_NDEBUG 0
 //#define LOG_PARAMETERS
 
@@ -85,7 +84,7 @@ static int check_vendor_module()
     if(gVendorModule)
         return 0;
 
-    rv = hw_get_module("vendor-camera", (const hw_module_t **)&gVendorModule);
+    rv = hw_get_module_by_class("camera", "vendor", (const hw_module_t **)&gVendorModule);
     if (rv)
         ALOGE("failed to open vendor camera module");
     return rv;
@@ -99,7 +98,21 @@ static char * camera_fixup_getparams(int id, const char * settings)
     android::CameraParameters params;
     params.unflatten(android::String8(settings));
 
-    // fix params here
+#ifdef LOG_PARAMETERS
+    ALOGD("%s: original parameters:", __FUNCTION__);
+    params.dump();
+#endif
+
+    /* Camera app expects the "off" HFR value to come as the last one,
+     * so if the vendor provided values start with it, move it at tail.
+     */
+    const char* hfrValues =
+            params.get(android::CameraParameters::KEY_SUPPORTED_VIDEO_HIGH_FRAME_RATE_MODES);
+    if (hfrValues && *hfrValues && !strncmp(hfrValues, "off,", 4)) {
+        char tmp[strlen(hfrValues) + 1];
+        sprintf(tmp, "%s,off", hfrValues + 4);
+        params.set(android::CameraParameters::KEY_SUPPORTED_VIDEO_HIGH_FRAME_RATE_MODES, tmp);
+    }
 
 /*
     // add hdr scene mode to existing scene modes
@@ -109,6 +122,10 @@ static char * camera_fixup_getparams(int id, const char * settings)
     char *ret = strdup(strParams.string());
 
     ALOGD("%s: get parameters fixed up", __FUNCTION__);
+#ifdef LOG_PARAMETERS
+    ALOGD("%s: fixed parameters:", __FUNCTION__);
+    params.dump();
+#endif
     return ret;
 }
 
@@ -117,13 +134,28 @@ char * camera_fixup_setparams(int id, const char * settings)
     android::CameraParameters params;
     params.unflatten(android::String8(settings));
 
-    // fix params here
+#ifdef LOG_PARAMETERS
+    ALOGD("%s: original parameters:", __FUNCTION__);
+    params.dump();
+#endif
 
+    /* no 'zsl-values' mean JB camera, which needs 'mode' parameter set to 'high-quality-zsl'
+     * to enable ZSL
+     */
+    const char *zslValues = params.get(android::CameraParameters::KEY_SUPPORTED_ZSL_MODES);
+    const char *zsl = params.get(android::CameraParameters::KEY_ZSL);
+    if (!zslValues && zsl && *zsl && !strncmp(zsl, "on", 2)) {
+        params.set("mode", "high-quality-zsl");
+    }
 
     android::String8 strParams = params.flatten();
     char *ret = strdup(strParams.string());
 
     ALOGD("%s: set parameters fixed up", __FUNCTION__);
+#ifdef LOG_PARAMETERS
+    ALOGD("%s: fixed parameters:", __FUNCTION__);
+    params.dump();
+#endif
     return ret;
 }
 
@@ -335,10 +367,6 @@ int camera_set_parameters(struct camera_device * device, const char *params)
     char *tmp = NULL;
     tmp = camera_fixup_setparams(CAMERA_ID(device), params);
 
-#ifdef LOG_PARAMETERS
-    __android_log_write(ANDROID_LOG_VERBOSE, LOG_TAG, tmp+350);
-#endif
-
     int ret = VENDOR_CALL(device, set_parameters, tmp);
     return ret;
 }
@@ -353,17 +381,9 @@ char* camera_get_parameters(struct camera_device * device)
 
     char* params = VENDOR_CALL(device, get_parameters);
 
-#ifdef LOG_PARAMETERS
-    __android_log_write(ANDROID_LOG_VERBOSE, LOG_TAG, params);
-#endif
-
     char * tmp = camera_fixup_getparams(CAMERA_ID(device), params);
     VENDOR_CALL(device, put_parameters, params);
     params = tmp;
-
-#ifdef LOG_PARAMETERS
-    __android_log_write(ANDROID_LOG_VERBOSE, LOG_TAG, params);
-#endif
 
     return params;
 }
