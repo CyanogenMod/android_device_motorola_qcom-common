@@ -146,6 +146,7 @@ char * camera_fixup_setparams(int id, const char * settings)
     const char *zsl = params.get(android::CameraParameters::KEY_ZSL);
     if (!zslValues && zsl && *zsl && !strncmp(zsl, "on", 2)) {
         params.set("mode", "high-quality-zsl");
+        params.set(android::CameraParameters::KEY_FACE_DETECTION, "off");
     }
 
     android::String8 strParams = params.flatten();
