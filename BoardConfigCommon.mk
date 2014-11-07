@@ -191,3 +191,6 @@ ifneq ($(TARGET_BUILD_VARIANT),user)
 endif
 
 PRODUCT_BOOT_JARS := $(subst $(space),:,$(PRODUCT_BOOT_JARS))
+
+# Include an expanded selection of fonts
+EXTENDED_FONT_FOOTPRINT := true
