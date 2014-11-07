@@ -190,8 +190,6 @@ ifneq ($(TARGET_BUILD_VARIANT),user)
 	BOARD_SEPOLICY_UNION += su.te
 endif
 
-PRODUCT_BOOT_JARS := $(subst $(space),:,$(PRODUCT_BOOT_JARS))
-
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
 
