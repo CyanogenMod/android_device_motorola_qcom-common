@@ -194,3 +194,5 @@ PRODUCT_BOOT_JARS := $(subst $(space),:,$(PRODUCT_BOOT_JARS))
 
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
+
+MALLOC_IMPL := dlmalloc
