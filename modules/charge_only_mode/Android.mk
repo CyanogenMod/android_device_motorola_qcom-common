@@ -31,6 +31,7 @@ else
     endif
 endif
 
+LOCAL_FORCE_STATIC_EXECUTABLE := true
 LOCAL_MODULE_TAGS:= optional
 LOCAL_MODULE:= charge_only_mode
 

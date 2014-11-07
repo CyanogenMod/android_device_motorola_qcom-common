@@ -57,6 +57,5 @@ LOCAL_MODULE_PATH := $(TARGET_OUT_ETC)/wifi
 include $(BUILD_PREBUILT)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
-include $(call all-subdir-makefiles,$(LOCAL_PATH))
 endif
 endif
