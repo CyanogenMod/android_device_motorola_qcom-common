@@ -22,5 +22,9 @@
 <resources>
     <!-- Should "4G" be shown instead of "LTE" when the network is NETWORK_TYPE_LTE? -->
     <bool name="config_show4GForLTE">false</bool>
+
+    <!-- Whether recents should use hardware layers for its taskviews. This flag can be enabled
+    for devices where the java drawing of round rects may be slow -->
+    <bool name="config_recents_use_hardware_layers">true</bool>
 </resources>
 
