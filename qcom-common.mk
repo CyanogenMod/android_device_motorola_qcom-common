@@ -176,13 +176,16 @@ PRODUCT_PACKAGES += \
     resize2fs \
     setup_fs
 
-#wifi
+# WiFi
 PRODUCT_PACKAGES += \
     dhcpcd.conf \
     hostapd.accept \
     hostapd.deny \
     hostapd_default.conf \
-    libnetcmdiface
+    libwpa_client \
+    hostapd \
+    wpa_supplicant \
+    wpa_supplicant.conf
 
 # Symlinks
 PRODUCT_PACKAGES += \
