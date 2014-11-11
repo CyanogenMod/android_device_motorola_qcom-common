@@ -1,6 +1,10 @@
 ifneq ($(filter mb886 moto_msm8960 moto_msm8960_jbbl vanquish xt897 xt897c xt901 xt907 xt925 xt926,$(TARGET_DEVICE)),)
 LOCAL_PATH := $(call my-dir)
+
 include $(CLEAR_VARS)
+
+LOCAL_C_INCLUDES := \
+    system/media/camera/include
 
 LOCAL_SRC_FILES := \
     CameraWrapper.cpp
