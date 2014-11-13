@@ -89,8 +89,10 @@ lib/libbabysit.so
 lib/libril-qcril-hook-oem.so
 
 # Time services
+-app/TimeService.apk
 bin/time_daemon
 -lib/libtime_genoff.so
+lib/libTimeService.so
 
 # Touch firmware
 etc/firmware/cyttsp_8064_mtp.hex

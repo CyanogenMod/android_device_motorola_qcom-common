@@ -103,9 +103,6 @@ TARGET_BOOTANIMATION_TEXTURE_CACHE := false
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_15x24.h\"
 BOARD_SUPPRESS_EMMC_WIPE := true
 
-# Time services
-BOARD_USES_QC_TIME_SERVICES := true
-
 # Enable dex-preoptimization to speed up first boot sequence
 ifeq ($(HOST_OS),linux)
   ifeq ($(TARGET_BUILD_VARIANT),user)
