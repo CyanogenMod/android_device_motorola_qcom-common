@@ -150,8 +150,8 @@ echo "# Prebuilt APKs" >> $VENDOR_MAKEFILE
 echo "PRODUCT_PACKAGES += \\" >> $VENDOR_MAKEFILE
 
 LINEEND=" \\"
-COUNT=`ls -1 ../../../$OUTDIR/proprietary/app/*.apk | wc -l`
-for APK in `ls ../../../$OUTDIR/proprietary/app/*apk`; do
+COUNT=`ls -1 ../../../$OUTDIR/proprietary/app/*/*.apk | wc -l`
+for APK in `ls ../../../$OUTDIR/proprietary/app/*/*apk`; do
   COUNT=`expr $COUNT - 1`
   if [ $COUNT = "0" ]; then
     LINEEND=""
@@ -162,7 +162,7 @@ for APK in `ls ../../../$OUTDIR/proprietary/app/*apk`; do
 include \$(CLEAR_VARS)
 LOCAL_MODULE := $apkmodulename
 LOCAL_MODULE_TAGS := optional
-LOCAL_SRC_FILES := $apkname
+LOCAL_SRC_FILES := $apkmodulename/$apkname
 LOCAL_CERTIFICATE := platform
 LOCAL_MODULE_CLASS := APPS
 LOCAL_MODULE_SUFFIX := \$(COMMON_ANDROID_PACKAGE_SUFFIX)
@@ -258,8 +258,8 @@ echo "# Prebuilt privileged APKs" >> $VENDOR_MAKEFILE
 echo "PRODUCT_PACKAGES += \\" >> $VENDOR_MAKEFILE
 
 LINEEND=" \\"
-COUNT=`ls -1 ../../../$OUTDIR/proprietary/priv-app/*.apk | wc -l`
-for PRIVAPK in `ls ../../../$OUTDIR/proprietary/priv-app/*apk`; do
+COUNT=`ls -1 ../../../$OUTDIR/proprietary/priv-app/*/*.apk | wc -l`
+for PRIVAPK in `ls ../../../$OUTDIR/proprietary/priv-app/*/*apk`; do
   COUNT=`expr $COUNT - 1`
   if [ $COUNT = "0" ]; then
     LINEEND=""
@@ -270,7 +270,7 @@ for PRIVAPK in `ls ../../../$OUTDIR/proprietary/priv-app/*apk`; do
 include \$(CLEAR_VARS)
 LOCAL_MODULE := $privmodulename
 LOCAL_MODULE_TAGS := optional
-LOCAL_SRC_FILES := $privapkname
+LOCAL_SRC_FILES := $privmodulename/$privapkname
 LOCAL_CERTIFICATE := platform
 LOCAL_MODULE_CLASS := APPS
 LOCAL_PRIVILEGED_MODULE := true
@@ -563,8 +563,8 @@ echo "# Prebuilt APKs" >> $COMMON_VENDOR_MAKEFILE
 echo "PRODUCT_PACKAGES += \\" >> $COMMON_VENDOR_MAKEFILE
 
 LINEEND=" \\"
-COUNT=`ls -1 ../../../$COMMON_OUTDIR/proprietary/app/*.apk | wc -l`
-for APK in `ls ../../../$COMMON_OUTDIR/proprietary/app/*apk`; do
+COUNT=`ls -1 ../../../$COMMON_OUTDIR/proprietary/app/*/*.apk | wc -l`
+for APK in `ls ../../../$COMMON_OUTDIR/proprietary/app/*/*apk`; do
   COUNT=`expr $COUNT - 1`
   if [ $COUNT = "0" ]; then
     LINEEND=""
@@ -575,7 +575,7 @@ for APK in `ls ../../../$COMMON_OUTDIR/proprietary/app/*apk`; do
 include \$(CLEAR_VARS)
 LOCAL_MODULE := $apkmodulename
 LOCAL_MODULE_TAGS := optional
-LOCAL_SRC_FILES := $apkname
+LOCAL_SRC_FILES := $apkmodulename/$apkname
 LOCAL_CERTIFICATE := platform
 LOCAL_MODULE_CLASS := APPS
 LOCAL_MODULE_SUFFIX := \$(COMMON_ANDROID_PACKAGE_SUFFIX)
@@ -683,8 +683,8 @@ echo "# Prebuilt privileged APKs" >> $COMMON_VENDOR_MAKEFILE
 echo "PRODUCT_PACKAGES += \\" >> $COMMON_VENDOR_MAKEFILE
 
 LINEEND=" \\"
-COUNT=`ls -1 ../../../$COMMON_OUTDIR/proprietary/priv-app/*.apk | wc -l`
-for PRIVAPK in `ls ../../../$COMMON_OUTDIR/proprietary/priv-app/*apk`; do
+COUNT=`ls -1 ../../../$COMMON_OUTDIR/proprietary/priv-app/*/*.apk | wc -l`
+for PRIVAPK in `ls ../../../$COMMON_OUTDIR/proprietary/priv-app/*/*apk`; do
   COUNT=`expr $COUNT - 1`
   if [ $COUNT = "0" ]; then
     LINEEND=""
@@ -695,7 +695,7 @@ for PRIVAPK in `ls ../../../$COMMON_OUTDIR/proprietary/priv-app/*apk`; do
 include \$(CLEAR_VARS)
 LOCAL_MODULE := $privmodulename
 LOCAL_MODULE_TAGS := optional
-LOCAL_SRC_FILES := $privapkname
+LOCAL_SRC_FILES := $privmodulename/$privapkname
 LOCAL_CERTIFICATE := platform
 LOCAL_MODULE_CLASS := APPS
 LOCAL_PRIVILEGED_MODULE := true
