@@ -11,10 +11,8 @@ bin/hci_qcomm_init
 lib/libdrmdiag.so
 lib/libdrmfs.so
 lib/libdrmtime.so
-lib/liboemcrypto.so
 vendor/lib/drm/libdrmwvmplugin.so
 vendor/lib/mediadrm/libwvdrmengine.so
-vendor/lib/mediadrm/libdrmclearkeyplugin.so
 vendor/lib/libdrmdecrypt.so
 vendor/lib/libwvdrm_L1.so
 vendor/lib/libwvm.so
