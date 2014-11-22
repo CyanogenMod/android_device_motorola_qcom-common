@@ -91,7 +91,7 @@ lib/libbabysit.so
 lib/libril-qcril-hook-oem.so
 
 # Time services
--app/TimeService/TimeService.apk
+-priv-app/TimeService/TimeService.apk
 bin/time_daemon
 -lib/libtime_genoff.so
 lib/libTimeService.so
