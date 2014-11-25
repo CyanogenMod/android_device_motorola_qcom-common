@@ -76,9 +76,6 @@ PRODUCT_PACKAGES += \
 # Charger
 PRODUCT_PACKAGES += charger_res_images
 
-# QRNGD
-PRODUCT_PACKAGES += qrngd
-
 # Misc
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
