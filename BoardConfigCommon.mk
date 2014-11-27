@@ -129,5 +129,3 @@ USE_MINIKIN := true
 EXTENDED_FONT_FOOTPRINT := true
 
 MALLOC_IMPL := dlmalloc
-
-TARGET_USES_LOGD := false
