@@ -61,6 +61,9 @@ camera_module_t HAL_MODULE_INFO_SYM = {
     },
     .get_number_of_cameras = camera_get_number_of_cameras,
     .get_camera_info = camera_get_camera_info,
+    .set_callbacks = NULL, /* remove compilation warnings */
+    .get_vendor_tag_ops = NULL, /* remove compilation warnings */
+    .reserved = {0}, /* remove compilation warnings */
 };
 
 typedef struct wrapper_camera_device {
@@ -90,7 +93,7 @@ static int check_vendor_module()
     return rv;
 }
 
-static char * camera_fixup_getparams(int id, const char * settings)
+static char * camera_fixup_getparams(const char * settings)
 {
     android::CameraParameters params;
     params.unflatten(android::String8(settings));
@@ -460,7 +463,7 @@ char* camera_get_parameters(struct camera_device * device)
 
     char* params = VENDOR_CALL(device, get_parameters);
 
-    char * tmp = camera_fixup_getparams(CAMERA_ID(device), params);
+    char * tmp = camera_fixup_getparams(params);
     VENDOR_CALL(device, put_parameters, params);
     params = tmp;
 
