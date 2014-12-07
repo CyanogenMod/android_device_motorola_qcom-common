@@ -166,6 +166,10 @@ char * camera_fixup_setparams(const char * settings)
     params.dump();
 #endif
 
+    /* Make sure that thumbnail size does not remain unset */
+    params.set(android::CameraParameters::KEY_JPEG_THUMBNAIL_WIDTH, "512");
+    params.set(android::CameraParameters::KEY_JPEG_THUMBNAIL_HEIGHT, "384");
+
     /* No 'zsl-values' mean JB camera, which needs 'mode' parameter set to 'high-quality-zsl'
      * to enable ZSL. Disable face detection in ZSL mode for JB blobs to prevent crash.
      */
