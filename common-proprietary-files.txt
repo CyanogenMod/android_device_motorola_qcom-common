@@ -53,6 +53,7 @@ lib/libOmxAmrwbplusDec.so
 lib/libOmxEvrcDec.so
 lib/libOmxMux.so
 lib/libOmxQcelp13Dec.so
+lib/libOmxWmaDec.so
 
 # Moto
 bin/dbvc_atvc_property_set
