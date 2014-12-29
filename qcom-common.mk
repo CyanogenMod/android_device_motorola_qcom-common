@@ -221,6 +221,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
     lpa.decode=true \
+    qcom.hw.aac.encoder=true \
     persist.audio.lowlatency.rec=false
 
 # WiFi
