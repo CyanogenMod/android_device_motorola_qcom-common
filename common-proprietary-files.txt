@@ -1,5 +1,4 @@
 # Audio
-lib/libacdbloader.so
 lib/libalsautils.so
 lib/libaudioalsa.so
 
@@ -34,7 +33,6 @@ etc/firmware/a225p5_pm4.fw
 etc/firmware/a225_pfp.fw
 etc/firmware/a225_pm4.fw
 etc/firmware/a300_pfp.fw
-etc/firmware/a300_pm4.fw
 etc/firmware/leia_pfp_470.fw
 etc/firmware/leia_pm4_470.fw
 
@@ -42,11 +40,8 @@ etc/firmware/leia_pm4_470.fw
 lib/libDivxDrm.so
 lib/libExtendedExtractor.so
 lib/libFileMux.so
-lib/libI420colorconvert.so
 lib/libSHIMDivxDrm.so
-lib/libgemini.so
 lib/libmercury.so
-lib/libmm-color-convertor.so
 lib/libmmosal.so
 lib/libOmxAacDec.so
 lib/libOmxAmrwbplusDec.so
@@ -62,7 +57,6 @@ bin/mount_ext4.sh
 bin/refuse
 
 # Perf
-bin/mpdecision
 lib/libqc-opt.so
 
 # Postprocessing
@@ -71,24 +65,16 @@ lib/libmm-abl-oem.so
 
 # Qualcomm framework
 bin/irsc_util
-lib/libconfigdb.so
-lib/libdsutils.so
-vendor/lib/libdiag.so
-vendor/lib/libqmi_csi.so
-vendor/lib/libqmi_encdec.so
 
 # Radio
 bin/bootmodem
 bin/efsks
 bin/ks
 bin/qcks
-bin/qdumpd
 bin/radish
 etc/permissions/qcnvitems.xml
 etc/permissions/qcrilhook.xml
 lib/libadropbox.so
-lib/libbabysit.so
-lib/libril-qcril-hook-oem.so
 
 # Time services
 -app/TimeService/TimeService.apk
