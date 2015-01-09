@@ -111,18 +111,9 @@ PRODUCT_PACKAGES += \
 
 # Init scripts
 PRODUCT_PACKAGES += \
-    init.class_main.sh \
     init.crda.sh \
     init.qcom.bt.sh \
-    init.qcom.class_core.sh \
     init.qcom.coex.sh \
-    init.qcom.early_boot.sh \
-    init.qcom.efs.sync.sh \
-    init.qcom.fm.sh \
-    init.qcom.mdm_links.sh \
-    init.qcom.modem_links.sh \
-    init.qcom.syspart_fixup.sh \
-    init.qcom.thermal_conf.sh \
     init.qcom.usb.sh
 
 # Thermal profiles
