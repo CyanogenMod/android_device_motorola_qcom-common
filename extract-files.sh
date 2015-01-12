@@ -51,8 +51,21 @@ rm -rf $DEVICE_BASE/*
 # Extract the device specific files
 extract ../../$VENDOR/$DEVICE/device-proprietary-files.txt $DEVICE_BASE
 
+# Check if their is a family device tree for this device
+if [ ! -z $FAMILY_DEVICE ]; then
+    FAMILY_BASE=../../../vendor/$VENDOR/$FAMILY_DEVICE/proprietary
+    rm -rf $FAMILY_BASE/*
+
+    # Check if there are files common to all devices but family specific
+    if [ -f ../../$VENDOR/$FAMILY_DEVICE/proprietary-files.txt ]; then
+        extract ../../$VENDOR/$FAMILY_DEVICE/proprietary-files.txt $DEVICE_BASE
+    fi
+    # Extract the files common to all devices using this common device tree
+    extract ../../$VENDOR/$FAMILY_DEVICE/common-proprietary-files.txt $FAMILY_BASE
+fi
+
 # Check if their is a common device tree for this device
-if [ $COMMON_DEVICE != "" ]; then
+if [ ! -z $COMMON_DEVICE ]; then
     COMMON_BASE=../../../vendor/$VENDOR/$COMMON_DEVICE/proprietary
     rm -rf $COMMON_BASE/*
 
