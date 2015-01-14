@@ -53,8 +53,6 @@ lib/libOmxWmaDec.so
 # Moto
 bin/dbvc_atvc_property_set
 bin/hardware_revisions.sh
-bin/mount_ext4.sh
-bin/refuse
 
 # Perf
 lib/libqc-opt.so
