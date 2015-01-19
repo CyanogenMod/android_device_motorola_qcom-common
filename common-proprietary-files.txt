@@ -75,9 +75,9 @@ etc/permissions/qcrilhook.xml
 lib/libadropbox.so
 
 # Time services
--app/TimeService/TimeService.apk
+#app/TimeService/TimeService.apk
 bin/time_daemon
--lib/libtime_genoff.so
+#lib/libtime_genoff.so
 lib/libTimeService.so
 
 # Touch firmware
