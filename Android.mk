@@ -20,7 +20,7 @@
 # are responsible for having their own logic, for fine-grained control.
 
 ifeq ($(BOARD_VENDOR),motorola-qcom)
-ifneq ($(filter mb886 moto_msm8960 moto_msm8960_jbbl xt897 xt897c xt907 xt925 xt926,$(TARGET_DEVICE)),)
+ifneq ($(filter mb886 moto_msm8960 moto_msm8960_jbbl xt897 xt897c xt907 xt925 xt926 xt925_jbbl,$(TARGET_DEVICE)),)
 
 LOCAL_PATH := $(call my-dir)
 
