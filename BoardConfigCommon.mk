@@ -88,6 +88,7 @@ AUDIO_FEATURE_DISABLED_FM := true
 
 # Camera
 USE_DEVICE_SPECIFIC_CAMERA := true
+TARGET_DISPLAY_INSECURE_MM_HEAP := true
 
 # Use CM PowerHAL by default if not definied elsewhere
 TARGET_POWERHAL_VARIANT ?= cm
