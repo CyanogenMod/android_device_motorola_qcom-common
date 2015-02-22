@@ -78,7 +78,8 @@ PRODUCT_PACKAGES += charger_res_images
 
 # Misc
 PRODUCT_PACKAGES += \
-    com.android.future.usb.accessory
+    com.android.future.usb.accessory \
+    unlock-us-gsm
 
 # Crda
 PRODUCT_PACKAGES += \
