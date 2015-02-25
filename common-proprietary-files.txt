@@ -51,6 +51,7 @@ lib/libOmxQcelp13Dec.so
 lib/libOmxWmaDec.so
 
 # Moto
+bin/aplogd
 bin/dbvc_atvc_property_set
 bin/hardware_revisions.sh
 

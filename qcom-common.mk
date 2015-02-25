@@ -61,10 +61,6 @@ PRODUCT_PACKAGES += \
     arec \
     alsaucm_test
 
-# Motorola
-PRODUCT_PACKAGES += \
-    aplogd
-
 # Misc
 PRODUCT_PACKAGES += \
     curl \
