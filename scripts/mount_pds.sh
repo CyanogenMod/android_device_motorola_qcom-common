@@ -10,5 +10,5 @@ fi
 
 #mount the fake pds
 /system/xbin/losetup /dev/block/loop0 /cache/pds-CM.img
-/system/xbin/busybox mount -o rw /dev/block/loop0 /pds
+/system/bin/mount -o rw -t ext3 /dev/block/loop0 /pds
 echo "Mounted PDS"
