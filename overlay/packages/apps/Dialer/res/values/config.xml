@@ -17,5 +17,6 @@
 <!-- We can capture the audio directly from voice call uplink + downlink
      audiosource. VOICE_CALL audiosource constant value is 4 -->
 <resources>
+    <bool name="call_recording_enabled">true</bool>
     <integer name="call_recording_audio_source">4</integer>
 </resources>
