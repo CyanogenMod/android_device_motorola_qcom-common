@@ -1,61 +1,61 @@
 key 1     ESCAPE
-key 2     1
-key 3     2
-key 4     3
-key 5     4
-key 6     5
-key 7     6
-key 8     7
-key 9     8
-key 10    9
-key 11    0
-key 12    MINUS
-key 13    EQUALS   
-key 14    DEL  
-key 15    TAB  
-key 16    Q
-key 17    W
-key 18    E
-key 19    R
-key 20    T
-key 21    Y
-key 22    U
-key 23    I
-key 24    O
-key 25    P
-key 26    LEFT_BRACKET
-key 27    RIGHT_BRACKET
-key 28    ENTER
+key 2     1                WAKE
+key 3     2                WAKE
+key 4     3                WAKE
+key 5     4                WAKE
+key 6     5                WAKE
+key 7     6                WAKE
+key 8     7                WAKE
+key 9     8                WAKE
+key 10    9                WAKE
+key 11    0                WAKE
+key 12    MINUS            WAKE
+key 13    EQUALS           WAKE
+key 14    DEL              WAKE
+key 15    TAB              WAKE
+key 16    Q                WAKE
+key 17    W                WAKE
+key 18    E                WAKE
+key 19    R                WAKE
+key 20    T                WAKE
+key 21    Y                WAKE
+key 22    U                WAKE
+key 23    I                WAKE
+key 24    O                WAKE
+key 25    P                WAKE
+key 26    LEFT_BRACKET     WAKE
+key 27    RIGHT_BRACKET    WAKE
+key 28    ENTER            WAKE
 key 29    CTRL_LEFT
-key 30    A
-key 31    S
-key 32    D
-key 33    F
-key 34    G
-key 35    H
-key 36    J
-key 37    K
-key 38    L
-key 39    SEMICOLON
-key 40    GRAVE
-key 41    APOSTROPHE
-key 42    SHIFT_LEFT
-key 43    BACKSLASH
-key 44    Z
-key 45    X
-key 46    C
-key 47    V
-key 48    B
-key 49    N
-key 50    M
-key 51    COMMA
-key 52    PERIOD   
-key 53    SLASH
+key 30    A                WAKE
+key 31    S                WAKE
+key 32    D                WAKE
+key 33    F                WAKE
+key 34    G                WAKE
+key 35    H                WAKE
+key 36    J                WAKE
+key 37    K                WAKE
+key 38    L                WAKE
+key 39    SEMICOLON        WAKE
+key 40    GRAVE            WAKE
+key 41    APOSTROPHE       WAKE
+key 42    SHIFT_LEFT       WAKE
+key 43    BACKSLASH        WAKE
+key 44    Z                WAKE
+key 45    X                WAKE
+key 46    C                WAKE
+key 47    V                WAKE
+key 48    B                WAKE
+key 49    N                WAKE
+key 50    M                WAKE
+key 51    COMMA            WAKE
+key 52    PERIOD           WAKE
+key 53    SLASH            WAKE
 key 54    SHIFT_RIGHT
 key 55    NUMPAD_MULTIPLY
 key 56    ALT_LEFT
-key 57    SPACE
-key 58    CAPS_LOCK
+key 57    SPACE            WAKE
+key 58    CAPS_LOCK        WAKE
 key 59    F1
 key 60    F2
 key 61    F3
@@ -102,18 +102,18 @@ key 100   ALT_RIGHT
 key 102   MOVE_HOME
 key 103   DPAD_UP
 key 104   PAGE_UP
-key 105   DPAD_LEFT
-key 106   DPAD_RIGHT
+key 105   DPAD_LEFT        WAKE
+key 106   DPAD_RIGHT       WAKE
 key 107   MOVE_END
-key 108   DPAD_DOWN
-key 109   PAGE_DOWN
+key 108   DPAD_DOWN        WAKE
+key 109   PAGE_DOWN        WAKE
 key 110   INSERT
 key 111   FORWARD_DEL
 # key 112 "KEY_MACRO"
 key 113   VOLUME_MUTE
 key 114   VOLUME_DOWN
 key 115   VOLUME_UP
-key 116   POWER
+key 116   POWER            WAKE
 key 117   NUMPAD_EQUALS
 # key 118 "KEY_KPPLUSMINUS"
 key 119   BREAK
@@ -124,7 +124,7 @@ key 121   NUMPAD_COMMA
 # key 124 "KEY_YEN"
 key 125   META_LEFT
 key 126   META_RIGHT
-key 127   MENU  
+key 127   MENU             WAKE
 key 128   MEDIA_STOP
 # key 129 "KEY_AGAIN"
 # key 130 "KEY_PROPS"
@@ -136,11 +136,11 @@ key 128   MEDIA_STOP
 # key 136 "KEY_FIND"
 # key 137 "KEY_CUT"
 # key 138 "KEY_HELP"
-key 139   MENU  
+key 139   MENU             WAKE
 key 140   CALCULATOR
 # key 141 "KEY_SETUP"
-key 142   POWER
-key 143   POWER
+key 142   POWER            WAKE
+key 143   POWER            WAKE
 # key 144 "KEY_FILE"
 # key 145 "KEY_SENDFILE"
 # key 146 "KEY_DELETEFILE"
@@ -149,13 +149,13 @@ key 143   POWER
 # key 149 "KEY_PROG2"
 key 150   EXPLORER
 # key 151 "KEY_MSDOS"
-key 152   POWER
+key 152   POWER            WAKE
 # key 153 "KEY_DIRECTION"
 # key 154 "KEY_CYCLEWINDOWS"
 key 155   ENVELOPE
 key 156   BOOKMARK
 # key 157 "KEY_COMPUTER"
-key 158   BACK  
+key 158   BACK             WAKE
 key 159   FORWARD
 key 160   MEDIA_CLOSE
 key 161   MEDIA_EJECT
@@ -225,7 +225,7 @@ key 217   SEARCH
 # key 225 "KEY_BRIGHTNESSUP"
 key 226   HEADSETHOOK
 
-key 232   DPAD_CENTER
+key 232   DPAD_CENTER      WAKE
 
 key 256   BUTTON_1
 key 257   BUTTON_2
@@ -354,25 +354,25 @@ key 429   CONTACTS
 
 key 464   FUNCTION
 key 465   ESCAPE
-key 466   F1    
-key 467   F2    
-key 468   F3    
-key 469   F4    
-key 470   F5    
-key 471   F6    
-key 472   F7    
-key 473   F8    
-key 474   F9    
-key 475   F10   
-key 476   F11   
-key 477   F12   
-key 478   1     
-key 479   2     
-key 480   D     
-key 481   E     
-key 482   F     
-key 483   S     
-key 484   B     
+key 466   F1
+key 467   F2
+key 468   F3
+key 469   F4
+key 470   F5
+key 471   F6
+key 472   F7
+key 473   F8
+key 474   F9
+key 475   F10
+key 476   F11
+key 477   F12
+key 478   1
+key 479   2
+key 480   D
+key 481   E
+key 482   F
+key 483   S
+key 484   B
 
 
 # key 497 KEY_BRL_DOT1
