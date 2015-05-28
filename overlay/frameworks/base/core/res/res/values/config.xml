@@ -247,4 +247,7 @@
     <integer name="config_multiuserMaximumUsers">4</integer>
     <!-- Whether Multiuser UI should be shown -->
     <bool name="config_enableMultiUserUI">true</bool>
+
+    <!-- If supported and enabled, are dreams activated when asleep and charging? (by default) -->
+    <bool name="config_dreamsActivatedOnSleepByDefault">true</bool>
 </resources>
