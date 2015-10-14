@@ -3,6 +3,7 @@
 #include <fcntl.h>
 #include <poll.h>
 #include <unistd.h>
+#include <sys/stat.h>
 #include <private/android_filesystem_config.h>
 
 #define DUMP_PATH "/sys/class/kgsl/kgsl-3d0/snapshot"
