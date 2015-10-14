@@ -64,6 +64,8 @@ camera_module_t HAL_MODULE_INFO_SYM = {
     .set_callbacks = NULL, /* remove compilation warnings */
     .get_vendor_tag_ops = NULL, /* remove compilation warnings */
     .open_legacy = NULL, /* remove compilation warnings */
+    .set_torch_mode = NULL, /* remove compilation warnings */
+    .init = NULL, /* remove compilation warnings */
     .reserved = {0}, /* remove compilation warnings */
 };
 
@@ -108,11 +110,11 @@ static char * camera_fixup_getparams(const char * settings)
      * so if the vendor provided values start with it, move it to tail.
      */
     const char* hfrValues =
-            params.get(android::CameraParameters::KEY_SUPPORTED_VIDEO_HIGH_FRAME_RATE_MODES);
+            params.get("video-hfr-values");
     if (hfrValues && *hfrValues && !strncmp(hfrValues, "off,", 4)) {
         char tmp[strlen(hfrValues) + 1];
         sprintf(tmp, "%s,off", hfrValues + 4);
-        params.set(android::CameraParameters::KEY_SUPPORTED_VIDEO_HIGH_FRAME_RATE_MODES, tmp);
+        params.set("video-hfr-values", tmp);
     }
 
     /* Add HDR scene mode expected by camera app to be present for cameras
@@ -173,12 +175,12 @@ char * camera_fixup_setparams(const char * settings)
     /* No 'zsl-values' mean JB camera, which needs 'mode' parameter set to 'high-quality-zsl'
      * to enable ZSL. Disable face detection in ZSL mode for JB blobs to prevent crash.
      */
-    const char *zslValues = params.get(android::CameraParameters::KEY_SUPPORTED_ZSL_MODES);
-    const char *zsl = params.get(android::CameraParameters::KEY_ZSL);
+    const char *zslValues = params.get("zsl-values");
+    const char *zsl = params.get("zsl");
     if (!zslValues) { // JB camera blobs in use
         if (zsl && *zsl && !strncmp(zsl, "on", 2)) {
             params.set("mode", "high-quality-zsl");
-            params.set(android::CameraParameters::KEY_FACE_DETECTION, "off");
+            params.set("face-detection", "off");
         } else {
             params.set("mode", "high-quality");
         }
@@ -193,7 +195,7 @@ char * camera_fixup_setparams(const char * settings)
             params.set("mot-hdr-mode", "on");
             params.set(android::CameraParameters::KEY_SCENE_MODE,
                     android::CameraParameters::SCENE_MODE_AUTO);
-            params.set(android::CameraParameters::KEY_FACE_DETECTION, "off");
+            params.set("face-detection", "off");
             isHdrWithZslEnabled = (zslValues != NULL);
         } else {
             params.set("mot-hdr-mode", "off");
@@ -223,11 +225,11 @@ char * camera_fixup_setparams(const char * settings)
      * by the vendor blobs.
      */
     const char* hfrValues =
-            params.get(android::CameraParameters::KEY_SUPPORTED_VIDEO_HIGH_FRAME_RATE_MODES);
+            params.get("video-hfr-values");
     if (hfrValues && *hfrValues && strncmp(hfrValues, "off,", 4)) {
         char tmp[strlen(hfrValues) + 1];
         sprintf(tmp, "off,%.*s", strlen(hfrValues) - 4, hfrValues);
-        params.set(android::CameraParameters::KEY_SUPPORTED_VIDEO_HIGH_FRAME_RATE_MODES, tmp);
+        params.set("video-hfr-values", tmp);
     }
 
     const char *supportedSceneModes =
