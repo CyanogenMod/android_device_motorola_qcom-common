@@ -83,6 +83,10 @@ PRODUCT_PACKAGES += \
     regdbdump \
     regulatory.bin
 
+# Stlport
+PRODUCT_PACKAGES += \
+    libstlport
+
 # Qcom SoftAP
 PRODUCT_PACKAGES += \
     libQWiFiSoftApCfg
