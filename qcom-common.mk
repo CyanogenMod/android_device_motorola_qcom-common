@@ -66,8 +66,7 @@ PRODUCT_PACKAGES += \
     curl \
     libbson \
     libcurl \
-    tcpdump \
-    Torch
+    tcpdump
 
 # Charger
 PRODUCT_PACKAGES += charger_res_images
@@ -91,15 +90,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libQWiFiSoftApCfg
 
-# Live Wallpapers
-PRODUCT_PACKAGES += \
-    LiveWallpapers \
-    LiveWallpapersPicker \
-    MagicSmokeWallpapers \
-    HoloSpiralWallpaper \
-    VisualizationWallpapers \
-    librs_jni
-
 # Wifi
 PRODUCT_PACKAGES += \
     p2p_supplicant_overlay.conf \
@@ -118,9 +108,7 @@ PRODUCT_PACKAGES += \
 
 # Thermal profiles
 PRODUCT_PACKAGES += \
-    thermald-8960.conf \
-    thermald-ghost.conf \
-    thermal-engine-8226.conf
+    thermald-8960.conf
 
 # Scripts
 PRODUCT_COPY_FILES += \
@@ -185,10 +173,8 @@ PRODUCT_PACKAGES += \
     WCNSS_qcom_wlan_nv.bin
 
 # QC Perf
-ifneq ($(TARGET_BOARD_PLATFORM),msm8226)
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=/system/lib/libqc-opt.so
-endif
 
 # QCOM
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -222,11 +208,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.qc.sub.rdump.max=20
 
 # Radio and Telephony
-ifneq ($(TARGET_BOARD_PLATFORM),msm8226)
 PRODUCT_PROPERTY_OVERRIDES += \
-    rild.libpath=/system/lib/libril-qc-qmi-1.so
-endif
-PRODUCT_PROPERTY_OVERRIDES += \
+    rild.libpath=/system/lib/libril-qc-qmi-1.so \
     ril.subscription.types=NV,RUIM \
     keyguard.no_require_sim=true \
     ro.use_data_netmgrd=true \
@@ -241,9 +224,5 @@ PRODUCT_GMS_CLIENTID_BASE ?= android-motorola
 # QC time services
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.timed.enable=true
-
-# USB OTG storage
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.isUsbOtgEnabled=true
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
