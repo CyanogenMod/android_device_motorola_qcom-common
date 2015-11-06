@@ -18,4 +18,16 @@ LOCAL_MODULE_TAGS := optional
 
 include $(BUILD_SHARED_LIBRARY)
 #include $(BUILD_HEAPTRACKED_SHARED_LIBRARY)
+
+include $(CLEAR_VARS)
+
+LOCAL_SHARED_LIBRARIES := libbinder
+
+LOCAL_SRC_FILES := \
+    CompatSymbols.cpp
+
+LOCAL_MODULE := libshim_cam
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+
+include $(BUILD_SHARED_LIBRARY)
 endif
