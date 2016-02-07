@@ -89,8 +89,8 @@ QCOM_USBAUDIO_ENABLED := true
 USE_DEVICE_SPECIFIC_CAMERA := true
 TARGET_DISPLAY_INSECURE_MM_HEAP := true
 
-# Use CM PowerHAL by default if not definied elsewhere
-TARGET_POWERHAL_VARIANT ?= cm
+# Build our own PowerHAL
+TARGET_POWERHAL_VARIANT :=
 
 # Number of supplementary service groups allowed by init
 TARGET_NR_SVC_SUPP_GIDS := 28
@@ -127,3 +127,4 @@ USE_MINIKIN := true
 EXTENDED_FONT_FOOTPRINT := true
 
 MALLOC_IMPL := dlmalloc
+
