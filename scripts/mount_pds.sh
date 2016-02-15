@@ -8,7 +8,6 @@ then
     echo "Backed up PDS"
 fi
 
-#mount the fake pds
+#prepare the fake pds
 /system/bin/losetup /dev/block/loop0 /cache/pds-CM.img
-/system/bin/mount -o rw -t ext3 /dev/block/loop0 /pds
-echo "Mounted PDS"
+setprop pds.ready 1
