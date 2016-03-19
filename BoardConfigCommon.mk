@@ -126,5 +126,3 @@ USE_MINIKIN := true
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
 
-MALLOC_IMPL := dlmalloc
-
