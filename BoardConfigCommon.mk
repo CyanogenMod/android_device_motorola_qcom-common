@@ -103,14 +103,16 @@ BOARD_SUPPRESS_EMMC_WIPE := true
 
 # Enable dex-preoptimization to speed up first boot sequence
 ifeq ($(HOST_OS),linux)
-  ifeq ($(TARGET_BUILD_VARIANT),user)
-    ifeq ($(WITH_DEXPREOPT),)
-      WITH_DEXPREOPT := true
-      WITH_DEXPREOPT_BOOT_IMG_ONLY := false
+  ifeq ($(WITH_DEXPREOPT),)
+    WITH_DEXPREOPT := true
+    WITH_DEXPREOPT_PIC := true
+    WITH_DEXPREOPT_BOOT_IMG_ONLY := false
+    ifneq ($(TARGET_BUILD_VARIANT),user)
+      # Retain classes.dex in APK's for non-user builds
+      DEX_PREOPT_DEFAULT := nostripping
     endif
   endif
 endif
-WITH_DEXPREOPT_BOOT_IMG_ONLY ?= true
 
 #TWRP
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
