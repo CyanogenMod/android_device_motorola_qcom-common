@@ -57,7 +57,8 @@ PRODUCT_PACKAGES += \
     aplay \
     amix \
     arec \
-    alsaucm_test
+    alsaucm_test \
+    tinymix
 
 # Misc
 PRODUCT_PACKAGES += \
