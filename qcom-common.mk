@@ -187,7 +187,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.audio.fluence.mode=endfire \
     persist.audio.vr.enable=false \
     persist.audio.handset.mic=digital \
-    ro.qc.sdk.audio.ssr=false
+    ro.qc.sdk.audio.ssr=false \
+    ro.audio.flinger_standbytime_ms=300
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
