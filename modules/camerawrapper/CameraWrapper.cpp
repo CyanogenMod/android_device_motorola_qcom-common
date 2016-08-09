@@ -344,6 +344,15 @@ static int camera_set_parameters(struct camera_device * device, const char *sett
         }
     }
 
+    /* Make sure that preview is running when enabling touch-af-aec,
+    /* otherwise mm-qcamera-daemon crashes with SIGFPE
+     */
+    if (!camera_preview_enabled(device)) {
+        params.set("touch-af-aec", "touch-off");
+    } else {
+        params.set("touch-af-aec", "touch-on");
+    }
+
     /*  mot-image-stabilization-mode enabled needs to take 3 subsequent snapshots
      *  and defeats the zero shutter lag speed advantage while no obvious picture
      *  quality improvement has been observed during limited testing, hence the
