@@ -56,4 +56,8 @@
 
     <integer name="config_keyboardBrightnessSettingDefault">255</integer>
 
+    <!-- Support in Surfaceflinger for blur layers.
+         NOTE: This requires additional hardware-specific code. -->
+    <bool name="config_ui_blur_enabled">true</bool>
+
 </resources>

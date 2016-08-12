@@ -18,6 +18,9 @@ vendor/lib/libwvm.so
 vendor/lib/libWVphoneAPI.so
 vendor/lib/libWVStreamControlAPI_L1.so
 
+# Blur
+vendor/lib/libuiblur.so
+
 # DxHDCP firmware
 etc/firmware/dxhdcp2.b00
 etc/firmware/dxhdcp2.b01
