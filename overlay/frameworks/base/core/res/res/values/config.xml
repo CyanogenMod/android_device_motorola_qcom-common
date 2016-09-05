@@ -193,16 +193,6 @@
         <item>7,1</item>
         <item>9,1</item>
     </string-array>
-    <integer-array name="config_data_usage_network_types">
-        <item>0</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>10</item>
-        <item>11</item>
-        <item>12</item>
-    </integer-array>
     <string-array name="networkAttributes">
         <item>wifi,1,1,1,-1,true</item>
         <item>mobile,0,0,0,-1,true</item>
