@@ -106,6 +106,8 @@ static int check_vendor_module()
  * implementation of camera_device_ops functions
  *******************************************************************/
 
+static uintptr_t previewWindow = NULL;
+
 static int camera_set_preview_window(struct camera_device * device,
         struct preview_stream_ops *window)
 {
@@ -114,6 +116,7 @@ static int camera_set_preview_window(struct camera_device * device,
     if(!device)
         return -EINVAL;
 
+    previewWindow = (uintptr_t)window;
     return VENDOR_CALL(device, set_preview_window, window);
 }
 
@@ -345,9 +348,9 @@ static int camera_set_parameters(struct camera_device * device, const char *sett
     }
 
     /* Make sure that preview is running when enabling touch-af-aec,
-    /* otherwise mm-qcamera-daemon crashes with SIGFPE
+     * otherwise mm-qcamera-daemon crashes with SIGFPE
      */
-    if (!camera_preview_enabled(device)) {
+    if (!camera_preview_enabled(device) || !previewWindow) {
         params.set("touch-af-aec", "touch-off");
     } else {
         params.set("touch-af-aec", "touch-on");
